@@ -9,7 +9,23 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import smalluml.Association;
+import smalluml.Attribute;
+import smalluml.Cardinality;
+import smalluml.Date;
+import smalluml.Diagram;
+import smalluml.Entity;
+import smalluml.Enumeration;
+import smalluml.Operation;
+import smalluml.Parameter;
+import smalluml.Role;
 import smalluml.SmallumlPackage;
+import smalluml.Timestamp;
+import smalluml.Type;
+import smalluml.smallBoolean;
+import smalluml.smallInteger;
+import smalluml.smallReal;
+import smalluml.smallString;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,8 +84,72 @@ public class SmallumlAdapterFactory extends AdapterFactoryImpl {
 	protected SmallumlSwitch<Adapter> modelSwitch =
 		new SmallumlSwitch<Adapter>() {
 			@Override
+			public Adapter caseDiagram(Diagram object) {
+				return createDiagramAdapter();
+			}
+			@Override
+			public Adapter caseEntity(Entity object) {
+				return createEntityAdapter();
+			}
+			@Override
 			public Adapter caseClass(smalluml.Class object) {
 				return createClassAdapter();
+			}
+			@Override
+			public Adapter caseAttribute(Attribute object) {
+				return createAttributeAdapter();
+			}
+			@Override
+			public Adapter caseOperation(Operation object) {
+				return createOperationAdapter();
+			}
+			@Override
+			public Adapter caseParameter(Parameter object) {
+				return createParameterAdapter();
+			}
+			@Override
+			public Adapter caseEnumeration(Enumeration object) {
+				return createEnumerationAdapter();
+			}
+			@Override
+			public Adapter caseCardinality(Cardinality object) {
+				return createCardinalityAdapter();
+			}
+			@Override
+			public Adapter caseRole(Role object) {
+				return createRoleAdapter();
+			}
+			@Override
+			public Adapter caseAssociation(Association object) {
+				return createAssociationAdapter();
+			}
+			@Override
+			public Adapter caseType(Type object) {
+				return createTypeAdapter();
+			}
+			@Override
+			public Adapter casesmallBoolean(smallBoolean object) {
+				return createsmallBooleanAdapter();
+			}
+			@Override
+			public Adapter casesmallInteger(smallInteger object) {
+				return createsmallIntegerAdapter();
+			}
+			@Override
+			public Adapter casesmallReal(smallReal object) {
+				return createsmallRealAdapter();
+			}
+			@Override
+			public Adapter casesmallString(smallString object) {
+				return createsmallStringAdapter();
+			}
+			@Override
+			public Adapter caseDate(Date object) {
+				return createDateAdapter();
+			}
+			@Override
+			public Adapter caseTimestamp(Timestamp object) {
+				return createTimestampAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -92,6 +172,34 @@ public class SmallumlAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
+	 * Creates a new adapter for an object of class '{@link smalluml.Diagram <em>Diagram</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see smalluml.Diagram
+	 * @generated
+	 */
+	public Adapter createDiagramAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link smalluml.Entity <em>Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see smalluml.Entity
+	 * @generated
+	 */
+	public Adapter createEntityAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link smalluml.Class <em>Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -102,6 +210,202 @@ public class SmallumlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createClassAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link smalluml.Attribute <em>Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see smalluml.Attribute
+	 * @generated
+	 */
+	public Adapter createAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link smalluml.Operation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see smalluml.Operation
+	 * @generated
+	 */
+	public Adapter createOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link smalluml.Parameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see smalluml.Parameter
+	 * @generated
+	 */
+	public Adapter createParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link smalluml.Enumeration <em>Enumeration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see smalluml.Enumeration
+	 * @generated
+	 */
+	public Adapter createEnumerationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link smalluml.Cardinality <em>Cardinality</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see smalluml.Cardinality
+	 * @generated
+	 */
+	public Adapter createCardinalityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link smalluml.Role <em>Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see smalluml.Role
+	 * @generated
+	 */
+	public Adapter createRoleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link smalluml.Association <em>Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see smalluml.Association
+	 * @generated
+	 */
+	public Adapter createAssociationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link smalluml.Type <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see smalluml.Type
+	 * @generated
+	 */
+	public Adapter createTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link smalluml.smallBoolean <em>small Boolean</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see smalluml.smallBoolean
+	 * @generated
+	 */
+	public Adapter createsmallBooleanAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link smalluml.smallInteger <em>small Integer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see smalluml.smallInteger
+	 * @generated
+	 */
+	public Adapter createsmallIntegerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link smalluml.smallReal <em>small Real</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see smalluml.smallReal
+	 * @generated
+	 */
+	public Adapter createsmallRealAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link smalluml.smallString <em>small String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see smalluml.smallString
+	 * @generated
+	 */
+	public Adapter createsmallStringAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link smalluml.Date <em>Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see smalluml.Date
+	 * @generated
+	 */
+	public Adapter createDateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link smalluml.Timestamp <em>Timestamp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see smalluml.Timestamp
+	 * @generated
+	 */
+	public Adapter createTimestampAdapter() {
 		return null;
 	}
 

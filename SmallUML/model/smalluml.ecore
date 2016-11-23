@@ -3,15 +3,15 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="smalluml" nsURI="http://www.univ-nantes.fr/smalluml" nsPrefix="smalluml">
   <eClassifiers xsi:type="ecore:EClass" name="Diagram">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entities" upperBound="-1"
-        eType="#//Entity"/>
+        eType="#//Entity" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//Entity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
-        eType="#//Entity"/>
+        eType="#//Attribute" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
-        eType="#//Operation"/>
+        eType="#//Operation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAbstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="#//Class"/>
@@ -24,7 +24,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" eType="#//Entity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//Parameter"/>
+        eType="#//Parameter" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
