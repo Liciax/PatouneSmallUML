@@ -34,38 +34,34 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eSubpackages name="types" nsURI="types" nsPrefix="types">
-    <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//Entity"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//types/Type"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Integer" eSuperTypes="#//types/Type"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Real" eSuperTypes="#//types/Type"/>
-    <eClassifiers xsi:type="ecore:EClass" name="String" eSuperTypes="#//types/Type"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//types/Type">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="day" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="month" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="timestamp" eType="#//types/Timestamp"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Timestamp" eSuperTypes="#//types/Type">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="hours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minutes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="seconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eClassifiers>
-  </eSubpackages>
-  <eSubpackages name="relations" nsURI="relations" nsPrefix="relations">
-    <eClassifiers xsi:type="ecore:EClass" name="Cardinality">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="lowerBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="upperBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Role">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="cardinality" eType="#//relations/Cardinality"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="entity" lowerBound="1"
-          eType="#//Class"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Association">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="roles" lowerBound="2"
-          upperBound="-1" eType="#//relations/Role"/>
-    </eClassifiers>
-  </eSubpackages>
+  <eClassifiers xsi:type="ecore:EClass" name="Cardinality">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lowerBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upperBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Role">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cardinality" eType="#//Cardinality"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" lowerBound="1"
+        eType="#//Class"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Association">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" lowerBound="2" upperBound="-1"
+        eType="#//Role"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//Entity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="smallBoolean" eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="smallInteger" eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="smallReal" eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="smallString" eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="day" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="month" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="timestamp" eType="#//Timestamp"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Timestamp" eSuperTypes="#//Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minutes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="seconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
 </ecore:EPackage>
