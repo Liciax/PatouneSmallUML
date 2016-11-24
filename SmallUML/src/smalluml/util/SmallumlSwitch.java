@@ -7,12 +7,12 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
+import smalluml.AbstractEntity;
 import smalluml.Association;
 import smalluml.Attribute;
 import smalluml.Cardinality;
 import smalluml.Date;
 import smalluml.Diagram;
-import smalluml.Entity;
 import smalluml.Enumeration;
 import smalluml.Operation;
 import smalluml.Parameter;
@@ -82,22 +82,22 @@ public class SmallumlSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case SmallumlPackage.ABSTRACT_ENTITY: {
+				AbstractEntity abstractEntity = (AbstractEntity)theEObject;
+				T result = caseAbstractEntity(abstractEntity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SmallumlPackage.DIAGRAM: {
 				Diagram diagram = (Diagram)theEObject;
 				T result = caseDiagram(diagram);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SmallumlPackage.ENTITY: {
-				Entity entity = (Entity)theEObject;
-				T result = caseEntity(entity);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SmallumlPackage.CLASS: {
 				smalluml.Class class_ = (smalluml.Class)theEObject;
 				T result = caseClass(class_);
-				if (result == null) result = caseEntity(class_);
+				if (result == null) result = caseAbstractEntity(class_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -122,7 +122,7 @@ public class SmallumlSwitch<T> extends Switch<T> {
 			case SmallumlPackage.ENUMERATION: {
 				Enumeration enumeration = (Enumeration)theEObject;
 				T result = caseEnumeration(enumeration);
-				if (result == null) result = caseEntity(enumeration);
+				if (result == null) result = caseAbstractEntity(enumeration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -141,13 +141,13 @@ public class SmallumlSwitch<T> extends Switch<T> {
 			case SmallumlPackage.ASSOCIATION: {
 				Association association = (Association)theEObject;
 				T result = caseAssociation(association);
+				if (result == null) result = caseAbstractEntity(association);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SmallumlPackage.TYPE: {
 				Type type = (Type)theEObject;
 				T result = caseType(type);
-				if (result == null) result = caseEntity(type);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -155,7 +155,6 @@ public class SmallumlSwitch<T> extends Switch<T> {
 				smallBoolean smallBoolean = (smallBoolean)theEObject;
 				T result = casesmallBoolean(smallBoolean);
 				if (result == null) result = caseType(smallBoolean);
-				if (result == null) result = caseEntity(smallBoolean);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -163,7 +162,6 @@ public class SmallumlSwitch<T> extends Switch<T> {
 				smallInteger smallInteger = (smallInteger)theEObject;
 				T result = casesmallInteger(smallInteger);
 				if (result == null) result = caseType(smallInteger);
-				if (result == null) result = caseEntity(smallInteger);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -171,7 +169,6 @@ public class SmallumlSwitch<T> extends Switch<T> {
 				smallReal smallReal = (smallReal)theEObject;
 				T result = casesmallReal(smallReal);
 				if (result == null) result = caseType(smallReal);
-				if (result == null) result = caseEntity(smallReal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -179,7 +176,6 @@ public class SmallumlSwitch<T> extends Switch<T> {
 				smallString smallString = (smallString)theEObject;
 				T result = casesmallString(smallString);
 				if (result == null) result = caseType(smallString);
-				if (result == null) result = caseEntity(smallString);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -187,7 +183,6 @@ public class SmallumlSwitch<T> extends Switch<T> {
 				Date date = (Date)theEObject;
 				T result = caseDate(date);
 				if (result == null) result = caseType(date);
-				if (result == null) result = caseEntity(date);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -195,7 +190,6 @@ public class SmallumlSwitch<T> extends Switch<T> {
 				Timestamp timestamp = (Timestamp)theEObject;
 				T result = caseTimestamp(timestamp);
 				if (result == null) result = caseType(timestamp);
-				if (result == null) result = caseEntity(timestamp);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -219,17 +213,17 @@ public class SmallumlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Entity</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEntity(Entity object) {
+	public T caseAbstractEntity(AbstractEntity object) {
 		return null;
 	}
 

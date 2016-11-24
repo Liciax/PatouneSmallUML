@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link smalluml.Class#getName <em>Name</em>}</li>
  *   <li>{@link smalluml.Class#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link smalluml.Class#getOperations <em>Operations</em>}</li>
- *   <li>{@link smalluml.Class#isIsAbstract <em>Is Abstract</em>}</li>
+ *   <li>{@link smalluml.Class#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link smalluml.Class#getExtends <em>Extends</em>}</li>
  * </ul>
  *
@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Class extends Entity {
+public interface Class extends AbstractEntity {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -84,31 +84,31 @@ public interface Class extends Entity {
 	EList<Operation> getOperations();
 
 	/**
-	 * Returns the value of the '<em><b>Is Abstract</b></em>' attribute.
+	 * Returns the value of the '<em><b>Abstract</b></em>' attribute.
 	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Is Abstract</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Abstract</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Abstract</em>' attribute.
-	 * @see #setIsAbstract(boolean)
-	 * @see smalluml.SmallumlPackage#getClass_IsAbstract()
+	 * @return the value of the '<em>Abstract</em>' attribute.
+	 * @see #setAbstract(boolean)
+	 * @see smalluml.SmallumlPackage#getClass_Abstract()
 	 * @model default="false"
 	 * @generated
 	 */
-	boolean isIsAbstract();
+	boolean isAbstract();
 
 	/**
-	 * Sets the value of the '{@link smalluml.Class#isIsAbstract <em>Is Abstract</em>}' attribute.
+	 * Sets the value of the '{@link smalluml.Class#isAbstract <em>Abstract</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Abstract</em>' attribute.
-	 * @see #isIsAbstract()
+	 * @param value the new value of the '<em>Abstract</em>' attribute.
+	 * @see #isAbstract()
 	 * @generated
 	 */
-	void setIsAbstract(boolean value);
+	void setAbstract(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Extends</b></em>' reference.

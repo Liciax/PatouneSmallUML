@@ -28,13 +28,13 @@ import smalluml.SmallumlPackage;
  *   <li>{@link smalluml.impl.ClassImpl#getName <em>Name</em>}</li>
  *   <li>{@link smalluml.impl.ClassImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link smalluml.impl.ClassImpl#getOperations <em>Operations</em>}</li>
- *   <li>{@link smalluml.impl.ClassImpl#isIsAbstract <em>Is Abstract</em>}</li>
+ *   <li>{@link smalluml.impl.ClassImpl#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link smalluml.impl.ClassImpl#getExtends <em>Extends</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ClassImpl extends EntityImpl implements smalluml.Class {
+public class ClassImpl extends AbstractEntityImpl implements smalluml.Class {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -76,24 +76,24 @@ public class ClassImpl extends EntityImpl implements smalluml.Class {
 	protected EList<Operation> operations;
 
 	/**
-	 * The default value of the '{@link #isIsAbstract() <em>Is Abstract</em>}' attribute.
+	 * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsAbstract()
+	 * @see #isAbstract()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_ABSTRACT_EDEFAULT = false;
+	protected static final boolean ABSTRACT_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isIsAbstract() <em>Is Abstract</em>}' attribute.
+	 * The cached value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsAbstract()
+	 * @see #isAbstract()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isAbstract = IS_ABSTRACT_EDEFAULT;
+	protected boolean abstract_ = ABSTRACT_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference.
@@ -174,8 +174,8 @@ public class ClassImpl extends EntityImpl implements smalluml.Class {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isIsAbstract() {
-		return isAbstract;
+	public boolean isAbstract() {
+		return abstract_;
 	}
 
 	/**
@@ -183,11 +183,11 @@ public class ClassImpl extends EntityImpl implements smalluml.Class {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIsAbstract(boolean newIsAbstract) {
-		boolean oldIsAbstract = isAbstract;
-		isAbstract = newIsAbstract;
+	public void setAbstract(boolean newAbstract) {
+		boolean oldAbstract = abstract_;
+		abstract_ = newAbstract;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SmallumlPackage.CLASS__IS_ABSTRACT, oldIsAbstract, isAbstract));
+			eNotify(new ENotificationImpl(this, Notification.SET, SmallumlPackage.CLASS__ABSTRACT, oldAbstract, abstract_));
 	}
 
 	/**
@@ -258,8 +258,8 @@ public class ClassImpl extends EntityImpl implements smalluml.Class {
 				return getAttributes();
 			case SmallumlPackage.CLASS__OPERATIONS:
 				return getOperations();
-			case SmallumlPackage.CLASS__IS_ABSTRACT:
-				return isIsAbstract();
+			case SmallumlPackage.CLASS__ABSTRACT:
+				return isAbstract();
 			case SmallumlPackage.CLASS__EXTENDS:
 				if (resolve) return getExtends();
 				return basicGetExtends();
@@ -287,8 +287,8 @@ public class ClassImpl extends EntityImpl implements smalluml.Class {
 				getOperations().clear();
 				getOperations().addAll((Collection<? extends Operation>)newValue);
 				return;
-			case SmallumlPackage.CLASS__IS_ABSTRACT:
-				setIsAbstract((Boolean)newValue);
+			case SmallumlPackage.CLASS__ABSTRACT:
+				setAbstract((Boolean)newValue);
 				return;
 			case SmallumlPackage.CLASS__EXTENDS:
 				setExtends((smalluml.Class)newValue);
@@ -314,8 +314,8 @@ public class ClassImpl extends EntityImpl implements smalluml.Class {
 			case SmallumlPackage.CLASS__OPERATIONS:
 				getOperations().clear();
 				return;
-			case SmallumlPackage.CLASS__IS_ABSTRACT:
-				setIsAbstract(IS_ABSTRACT_EDEFAULT);
+			case SmallumlPackage.CLASS__ABSTRACT:
+				setAbstract(ABSTRACT_EDEFAULT);
 				return;
 			case SmallumlPackage.CLASS__EXTENDS:
 				setExtends((smalluml.Class)null);
@@ -338,8 +338,8 @@ public class ClassImpl extends EntityImpl implements smalluml.Class {
 				return attributes != null && !attributes.isEmpty();
 			case SmallumlPackage.CLASS__OPERATIONS:
 				return operations != null && !operations.isEmpty();
-			case SmallumlPackage.CLASS__IS_ABSTRACT:
-				return isAbstract != IS_ABSTRACT_EDEFAULT;
+			case SmallumlPackage.CLASS__ABSTRACT:
+				return abstract_ != ABSTRACT_EDEFAULT;
 			case SmallumlPackage.CLASS__EXTENDS:
 				return extends_ != null;
 		}
@@ -358,8 +358,8 @@ public class ClassImpl extends EntityImpl implements smalluml.Class {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", isAbstract: ");
-		result.append(isAbstract);
+		result.append(", abstract: ");
+		result.append(abstract_);
 		result.append(')');
 		return result.toString();
 	}
