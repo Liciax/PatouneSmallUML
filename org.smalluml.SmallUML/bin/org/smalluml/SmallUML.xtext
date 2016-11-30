@@ -43,7 +43,7 @@ Attribute returns Attribute:
 // Rule generating an Operation
 Operation returns Operation:
 	{Operation}
-	returnType=Type  name=EString '(' (parameters+=Parameter)? (',' parameters+=Parameter)* ')'
+	(returnType=Type)?  name=EString '(' (parameters+=Parameter)? (',' parameters+=Parameter)* ')'
 ;
 
 // Rule generating a Parameter
