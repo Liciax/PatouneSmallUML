@@ -10,13 +10,14 @@ import org.eclipse.xtext.junit4.util.ParseHelper
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
+import smalluml.Diagram
 
 @RunWith(XtextRunner)
 @InjectWith(SmallUMLInjectorProvider)
 class SmallUMLParsingTest{
 
 	@Inject
-	ParseHelper<smalluml.Class> parseHelper
+	ParseHelper<Diagram> parseHelper
 
 	@Test 
 	def void loadModel() {

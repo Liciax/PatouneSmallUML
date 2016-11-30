@@ -15,7 +15,20 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.smalluml.services.SmallUMLGrammarAccess;
+import smalluml.Association;
+import smalluml.Attribute;
+import smalluml.Cardinality;
+import smalluml.Date;
+import smalluml.Diagram;
+import smalluml.Enumeration;
+import smalluml.Operation;
+import smalluml.Role;
 import smalluml.SmallumlPackage;
+import smalluml.Timestamp;
+import smalluml.smallBoolean;
+import smalluml.smallInteger;
+import smalluml.smallReal;
+import smalluml.smallString;
 
 @SuppressWarnings("all")
 public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -31,8 +44,50 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == SmallumlPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case SmallumlPackage.ASSOCIATION:
+				sequence_Association(context, (Association) semanticObject); 
+				return; 
+			case SmallumlPackage.ATTRIBUTE:
+				sequence_Attribute(context, (Attribute) semanticObject); 
+				return; 
+			case SmallumlPackage.CARDINALITY:
+				sequence_Cardinality(context, (Cardinality) semanticObject); 
+				return; 
 			case SmallumlPackage.CLASS:
 				sequence_Class(context, (smalluml.Class) semanticObject); 
+				return; 
+			case SmallumlPackage.DATE:
+				sequence_Date(context, (Date) semanticObject); 
+				return; 
+			case SmallumlPackage.DIAGRAM:
+				sequence_Diagram(context, (Diagram) semanticObject); 
+				return; 
+			case SmallumlPackage.ENUMERATION:
+				sequence_Enumeration(context, (Enumeration) semanticObject); 
+				return; 
+			case SmallumlPackage.OPERATION:
+				sequence_Operation(context, (Operation) semanticObject); 
+				return; 
+			case SmallumlPackage.PARAMETER:
+				sequence_Parameter(context, (smalluml.Parameter) semanticObject); 
+				return; 
+			case SmallumlPackage.ROLE:
+				sequence_Role(context, (Role) semanticObject); 
+				return; 
+			case SmallumlPackage.TIMESTAMP:
+				sequence_Timestamp(context, (Timestamp) semanticObject); 
+				return; 
+			case SmallumlPackage.SMALL_BOOLEAN:
+				sequence_smallBoolean(context, (smallBoolean) semanticObject); 
+				return; 
+			case SmallumlPackage.SMALL_INTEGER:
+				sequence_smallInteger(context, (smallInteger) semanticObject); 
+				return; 
+			case SmallumlPackage.SMALL_REAL:
+				sequence_smallReal(context, (smallReal) semanticObject); 
+				return; 
+			case SmallumlPackage.SMALL_STRING:
+				sequence_smallString(context, (smallString) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -41,19 +96,224 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     AbstractEntity returns Association
+	 *     Association returns Association
+	 *
+	 * Constraint:
+	 *     (name=ID roles+=Role roles+=Role+)
+	 */
+	protected void sequence_Association(ISerializationContext context, Association semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Attribute returns Attribute
+	 *
+	 * Constraint:
+	 *     (name=ID type=Type)
+	 */
+	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.ATTRIBUTE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.ATTRIBUTE__NAME));
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.ATTRIBUTE__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.ATTRIBUTE__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getAttributeAccess().getTypeTypeParserRuleCall_3_0(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Cardinality returns Cardinality
+	 *
+	 * Constraint:
+	 *     (lowerBound=EString upperBound=EString)
+	 */
+	protected void sequence_Cardinality(ISerializationContext context, Cardinality semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.CARDINALITY__LOWER_BOUND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.CARDINALITY__LOWER_BOUND));
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.CARDINALITY__UPPER_BOUND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.CARDINALITY__UPPER_BOUND));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCardinalityAccess().getLowerBoundEStringParserRuleCall_2_0(), semanticObject.getLowerBound());
+		feeder.accept(grammarAccess.getCardinalityAccess().getUpperBoundEStringParserRuleCall_4_0(), semanticObject.getUpperBound());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractEntity returns Class
 	 *     Class returns Class
 	 *
 	 * Constraint:
-	 *     name=EString
+	 *     (
+	 *         abstract?='abstract'? 
+	 *         name=EString 
+	 *         extends=[Class|EString]? 
+	 *         (attributes+=Attribute attributes+=Attribute*)? 
+	 *         (operations+=Operation operations+=Operation*)?
+	 *     )
 	 */
 	protected void sequence_Class(ISerializationContext context, smalluml.Class semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Date returns Date
+	 *
+	 * Constraint:
+	 *     (day=EString? month=EString? year=EString? timestamp=[Timestamp|EString]?)
+	 */
+	protected void sequence_Date(ISerializationContext context, Date semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Diagram returns Diagram
+	 *
+	 * Constraint:
+	 *     (name=ID entities+=AbstractEntity*)
+	 */
+	protected void sequence_Diagram(ISerializationContext context, Diagram semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractEntity returns Enumeration
+	 *     Enumeration returns Enumeration
+	 *
+	 * Constraint:
+	 *     (name=ID elements+=EString elements+=EString*)
+	 */
+	protected void sequence_Enumeration(ISerializationContext context, Enumeration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Operation returns Operation
+	 *
+	 * Constraint:
+	 *     (returnType=Type? name=EString parameters+=Parameter? parameters+=Parameter*)
+	 */
+	protected void sequence_Operation(ISerializationContext context, Operation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Parameter returns Parameter
+	 *
+	 * Constraint:
+	 *     (type=Type? name=EString)
+	 */
+	protected void sequence_Parameter(ISerializationContext context, smalluml.Parameter semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Role returns Role
+	 *
+	 * Constraint:
+	 *     (name=ID cardinality=Cardinality entity=[Class|EString])
+	 */
+	protected void sequence_Role(ISerializationContext context, Role semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.CLASS__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.CLASS__NAME));
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.ROLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.ROLE__NAME));
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.ROLE__CARDINALITY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.ROLE__CARDINALITY));
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.ROLE__ENTITY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.ROLE__ENTITY));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getClassAccess().getNameEStringParserRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getRoleAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getRoleAccess().getCardinalityCardinalityParserRuleCall_3_0(), semanticObject.getCardinality());
+		feeder.accept(grammarAccess.getRoleAccess().getEntityClassEStringParserRuleCall_5_0_1(), semanticObject.getEntity());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Timestamp returns Timestamp
+	 *
+	 * Constraint:
+	 *     (hours=EInt? minutes=EInt? seconds=EInt?)
+	 */
+	protected void sequence_Timestamp(ISerializationContext context, Timestamp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Type returns smallBoolean
+	 *     smallBoolean returns smallBoolean
+	 *
+	 * Constraint:
+	 *     {smallBoolean}
+	 */
+	protected void sequence_smallBoolean(ISerializationContext context, smallBoolean semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Type returns smallInteger
+	 *     smallInteger returns smallInteger
+	 *
+	 * Constraint:
+	 *     {smallInteger}
+	 */
+	protected void sequence_smallInteger(ISerializationContext context, smallInteger semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Type returns smallReal
+	 *     smallReal returns smallReal
+	 *
+	 * Constraint:
+	 *     {smallReal}
+	 */
+	protected void sequence_smallReal(ISerializationContext context, smallReal semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Type returns smallString
+	 *     smallString returns smallString
+	 *
+	 * Constraint:
+	 *     {smallString}
+	 */
+	protected void sequence_smallString(ISerializationContext context, smallString semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

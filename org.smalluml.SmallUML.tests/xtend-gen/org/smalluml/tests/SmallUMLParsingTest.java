@@ -13,13 +13,14 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.smalluml.tests.SmallUMLInjectorProvider;
+import smalluml.Diagram;
 
 @RunWith(XtextRunner.class)
 @InjectWith(SmallUMLInjectorProvider.class)
 @SuppressWarnings("all")
 public class SmallUMLParsingTest {
   @Inject
-  private ParseHelper<smalluml.Class> parseHelper;
+  private ParseHelper<Diagram> parseHelper;
   
   @Test
   public void loadModel() {
@@ -27,7 +28,7 @@ public class SmallUMLParsingTest {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Hello Xtext!");
       _builder.newLine();
-      final smalluml.Class result = this.parseHelper.parse(_builder);
+      final Diagram result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

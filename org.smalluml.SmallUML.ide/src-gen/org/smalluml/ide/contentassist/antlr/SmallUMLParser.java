@@ -35,9 +35,77 @@ public class SmallUMLParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getAbstractEntityAccess().getAlternatives(), "rule__AbstractEntity__Alternatives");
+					put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
+					put(grammarAccess.getEBooleanAccess().getAlternatives(), "rule__EBoolean__Alternatives");
+					put(grammarAccess.getDiagramAccess().getGroup(), "rule__Diagram__Group__0");
 					put(grammarAccess.getClassAccess().getGroup(), "rule__Class__Group__0");
-					put(grammarAccess.getClassAccess().getNameAssignment_2(), "rule__Class__NameAssignment_2");
+					put(grammarAccess.getClassAccess().getGroup_4(), "rule__Class__Group_4__0");
+					put(grammarAccess.getClassAccess().getGroup_6(), "rule__Class__Group_6__0");
+					put(grammarAccess.getClassAccess().getGroup_6_3(), "rule__Class__Group_6_3__0");
+					put(grammarAccess.getClassAccess().getGroup_7(), "rule__Class__Group_7__0");
+					put(grammarAccess.getClassAccess().getGroup_7_3(), "rule__Class__Group_7_3__0");
+					put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
+					put(grammarAccess.getOperationAccess().getGroup(), "rule__Operation__Group__0");
+					put(grammarAccess.getOperationAccess().getGroup_5(), "rule__Operation__Group_5__0");
+					put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
+					put(grammarAccess.getParameterAccess().getGroup_1(), "rule__Parameter__Group_1__0");
+					put(grammarAccess.getAssociationAccess().getGroup(), "rule__Association__Group__0");
+					put(grammarAccess.getAssociationAccess().getGroup_5(), "rule__Association__Group_5__0");
+					put(grammarAccess.getRoleAccess().getGroup(), "rule__Role__Group__0");
+					put(grammarAccess.getCardinalityAccess().getGroup(), "rule__Cardinality__Group__0");
+					put(grammarAccess.getEnumerationAccess().getGroup(), "rule__Enumeration__Group__0");
+					put(grammarAccess.getEnumerationAccess().getGroup_5(), "rule__Enumeration__Group_5__0");
+					put(grammarAccess.getSmallBooleanAccess().getGroup(), "rule__SmallBoolean__Group__0");
+					put(grammarAccess.getSmallIntegerAccess().getGroup(), "rule__SmallInteger__Group__0");
+					put(grammarAccess.getSmallRealAccess().getGroup(), "rule__SmallReal__Group__0");
+					put(grammarAccess.getSmallStringAccess().getGroup(), "rule__SmallString__Group__0");
+					put(grammarAccess.getDateAccess().getGroup(), "rule__Date__Group__0");
+					put(grammarAccess.getDateAccess().getGroup_3(), "rule__Date__Group_3__0");
+					put(grammarAccess.getDateAccess().getGroup_4(), "rule__Date__Group_4__0");
+					put(grammarAccess.getDateAccess().getGroup_5(), "rule__Date__Group_5__0");
+					put(grammarAccess.getDateAccess().getGroup_6(), "rule__Date__Group_6__0");
+					put(grammarAccess.getTimestampAccess().getGroup(), "rule__Timestamp__Group__0");
+					put(grammarAccess.getTimestampAccess().getGroup_3(), "rule__Timestamp__Group_3__0");
+					put(grammarAccess.getTimestampAccess().getGroup_4(), "rule__Timestamp__Group_4__0");
+					put(grammarAccess.getTimestampAccess().getGroup_5(), "rule__Timestamp__Group_5__0");
+					put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
+					put(grammarAccess.getDiagramAccess().getNameAssignment_2(), "rule__Diagram__NameAssignment_2");
+					put(grammarAccess.getDiagramAccess().getEntitiesAssignment_4(), "rule__Diagram__EntitiesAssignment_4");
+					put(grammarAccess.getClassAccess().getAbstractAssignment_1(), "rule__Class__AbstractAssignment_1");
+					put(grammarAccess.getClassAccess().getNameAssignment_3(), "rule__Class__NameAssignment_3");
+					put(grammarAccess.getClassAccess().getExtendsAssignment_4_1(), "rule__Class__ExtendsAssignment_4_1");
+					put(grammarAccess.getClassAccess().getAttributesAssignment_6_2(), "rule__Class__AttributesAssignment_6_2");
+					put(grammarAccess.getClassAccess().getAttributesAssignment_6_3_1(), "rule__Class__AttributesAssignment_6_3_1");
+					put(grammarAccess.getClassAccess().getOperationsAssignment_7_2(), "rule__Class__OperationsAssignment_7_2");
+					put(grammarAccess.getClassAccess().getOperationsAssignment_7_3_1(), "rule__Class__OperationsAssignment_7_3_1");
+					put(grammarAccess.getAttributeAccess().getNameAssignment_1(), "rule__Attribute__NameAssignment_1");
+					put(grammarAccess.getAttributeAccess().getTypeAssignment_3(), "rule__Attribute__TypeAssignment_3");
+					put(grammarAccess.getOperationAccess().getReturnTypeAssignment_1(), "rule__Operation__ReturnTypeAssignment_1");
+					put(grammarAccess.getOperationAccess().getNameAssignment_2(), "rule__Operation__NameAssignment_2");
+					put(grammarAccess.getOperationAccess().getParametersAssignment_4(), "rule__Operation__ParametersAssignment_4");
+					put(grammarAccess.getOperationAccess().getParametersAssignment_5_1(), "rule__Operation__ParametersAssignment_5_1");
+					put(grammarAccess.getParameterAccess().getTypeAssignment_1_0(), "rule__Parameter__TypeAssignment_1_0");
+					put(grammarAccess.getParameterAccess().getNameAssignment_2(), "rule__Parameter__NameAssignment_2");
+					put(grammarAccess.getAssociationAccess().getNameAssignment_2(), "rule__Association__NameAssignment_2");
+					put(grammarAccess.getAssociationAccess().getRolesAssignment_4(), "rule__Association__RolesAssignment_4");
+					put(grammarAccess.getAssociationAccess().getRolesAssignment_5_1(), "rule__Association__RolesAssignment_5_1");
+					put(grammarAccess.getRoleAccess().getNameAssignment_2(), "rule__Role__NameAssignment_2");
+					put(grammarAccess.getRoleAccess().getCardinalityAssignment_3(), "rule__Role__CardinalityAssignment_3");
+					put(grammarAccess.getRoleAccess().getEntityAssignment_5(), "rule__Role__EntityAssignment_5");
+					put(grammarAccess.getCardinalityAccess().getLowerBoundAssignment_2(), "rule__Cardinality__LowerBoundAssignment_2");
+					put(grammarAccess.getCardinalityAccess().getUpperBoundAssignment_4(), "rule__Cardinality__UpperBoundAssignment_4");
+					put(grammarAccess.getEnumerationAccess().getNameAssignment_2(), "rule__Enumeration__NameAssignment_2");
+					put(grammarAccess.getEnumerationAccess().getElementsAssignment_4(), "rule__Enumeration__ElementsAssignment_4");
+					put(grammarAccess.getEnumerationAccess().getElementsAssignment_5_1(), "rule__Enumeration__ElementsAssignment_5_1");
+					put(grammarAccess.getDateAccess().getDayAssignment_3_1(), "rule__Date__DayAssignment_3_1");
+					put(grammarAccess.getDateAccess().getMonthAssignment_4_1(), "rule__Date__MonthAssignment_4_1");
+					put(grammarAccess.getDateAccess().getYearAssignment_5_1(), "rule__Date__YearAssignment_5_1");
+					put(grammarAccess.getDateAccess().getTimestampAssignment_6_1(), "rule__Date__TimestampAssignment_6_1");
+					put(grammarAccess.getTimestampAccess().getHoursAssignment_3_1(), "rule__Timestamp__HoursAssignment_3_1");
+					put(grammarAccess.getTimestampAccess().getMinutesAssignment_4_1(), "rule__Timestamp__MinutesAssignment_4_1");
+					put(grammarAccess.getTimestampAccess().getSecondsAssignment_5_1(), "rule__Timestamp__SecondsAssignment_5_1");
 				}
 			};
 		}
@@ -48,7 +116,7 @@ public class SmallUMLParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			InternalSmallUMLParser typedParser = (InternalSmallUMLParser) parser;
-			typedParser.entryRuleClass();
+			typedParser.entryRuleDiagram();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);
