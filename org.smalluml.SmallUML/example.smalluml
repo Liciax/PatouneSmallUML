@@ -1,0 +1,31 @@
+Diagram Dating {
+	Type int;
+	Type Long;
+	Type boolean;
+	
+	Enumeration SexAppeal {
+		petitCul,
+		grosPecs
+	}
+	
+	abstract Class Juliette {
+		attributes (isVirgin : boolean)
+	}
+	
+	abstract Class Romeo {
+		operations(boolean seduce (Juliette : juliette))
+	}
+	
+	Class Pierre extends Juliette {
+		attributes (appeal : SexAppeal, luck : int)
+	}
+	
+	Class Thao extends Romeo {
+		attributes (cheveux : Long)
+	}
+	
+	Association couple {
+		role mari ['1','1'] with Thao,
+		role femme ['1','1'] with Pierre
+	}
+}

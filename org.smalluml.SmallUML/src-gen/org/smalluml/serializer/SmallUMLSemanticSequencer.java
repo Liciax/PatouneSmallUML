@@ -25,10 +25,7 @@ import smalluml.Operation;
 import smalluml.Role;
 import smalluml.SmallumlPackage;
 import smalluml.Timestamp;
-import smalluml.smallBoolean;
-import smalluml.smallInteger;
-import smalluml.smallReal;
-import smalluml.smallString;
+import smalluml.Type;
 
 @SuppressWarnings("all")
 public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -77,17 +74,8 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case SmallumlPackage.TIMESTAMP:
 				sequence_Timestamp(context, (Timestamp) semanticObject); 
 				return; 
-			case SmallumlPackage.SMALL_BOOLEAN:
-				sequence_smallBoolean(context, (smallBoolean) semanticObject); 
-				return; 
-			case SmallumlPackage.SMALL_INTEGER:
-				sequence_smallInteger(context, (smallInteger) semanticObject); 
-				return; 
-			case SmallumlPackage.SMALL_REAL:
-				sequence_smallReal(context, (smallReal) semanticObject); 
-				return; 
-			case SmallumlPackage.SMALL_STRING:
-				sequence_smallString(context, (smallString) semanticObject); 
+			case SmallumlPackage.TYPE:
+				sequence_Type(context, (Type) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -96,7 +84,7 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
-	 *     AbstractEntity returns Association
+	 *     DiagramEntity returns Association
 	 *     Association returns Association
 	 *
 	 * Constraint:
@@ -112,7 +100,7 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Attribute returns Attribute
 	 *
 	 * Constraint:
-	 *     (name=ID type=Type)
+	 *     (name=ID type=[AbstractEntity|EString])
 	 */
 	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
 		if (errorAcceptor != null) {
@@ -123,7 +111,7 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getAttributeAccess().getTypeTypeParserRuleCall_3_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getAttributeAccess().getTypeAbstractEntityEStringParserRuleCall_3_0_1(), semanticObject.getType());
 		feeder.finish();
 	}
 	
@@ -151,6 +139,7 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     DiagramEntity returns Class
 	 *     AbstractEntity returns Class
 	 *     Class returns Class
 	 *
@@ -170,10 +159,12 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     DiagramEntity returns Date
+	 *     AbstractEntity returns Date
 	 *     Date returns Date
 	 *
 	 * Constraint:
-	 *     (day=EString? month=EString? year=EString? timestamp=[Timestamp|EString]?)
+	 *     (name=ID day=EString? month=EString? year=EString? timestamp=[Timestamp|EString]?)
 	 */
 	protected void sequence_Date(ISerializationContext context, Date semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -185,7 +176,7 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Diagram returns Diagram
 	 *
 	 * Constraint:
-	 *     (name=ID entities+=AbstractEntity*)
+	 *     (name=ID entities+=DiagramEntity*)
 	 */
 	protected void sequence_Diagram(ISerializationContext context, Diagram semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -194,6 +185,7 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     DiagramEntity returns Enumeration
 	 *     AbstractEntity returns Enumeration
 	 *     Enumeration returns Enumeration
 	 *
@@ -210,7 +202,7 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Operation returns Operation
 	 *
 	 * Constraint:
-	 *     (returnType=Type? name=EString parameters+=Parameter? parameters+=Parameter*)
+	 *     (returnType=[AbstractEntity|EString]? name=EString parameters+=Parameter? parameters+=Parameter*)
 	 */
 	protected void sequence_Operation(ISerializationContext context, Operation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -222,7 +214,7 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Parameter returns Parameter
 	 *
 	 * Constraint:
-	 *     (type=Type? name=EString)
+	 *     (type=[AbstractEntity|EString]? name=EString)
 	 */
 	protected void sequence_Parameter(ISerializationContext context, smalluml.Parameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -255,10 +247,12 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     DiagramEntity returns Timestamp
+	 *     AbstractEntity returns Timestamp
 	 *     Timestamp returns Timestamp
 	 *
 	 * Constraint:
-	 *     (hours=EInt? minutes=EInt? seconds=EInt?)
+	 *     (name=ID hours=EInt? minutes=EInt? seconds=EInt?)
 	 */
 	protected void sequence_Timestamp(ISerializationContext context, Timestamp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -267,53 +261,21 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
-	 *     Type returns smallBoolean
-	 *     smallBoolean returns smallBoolean
+	 *     DiagramEntity returns Type
+	 *     AbstractEntity returns Type
+	 *     Type returns Type
 	 *
 	 * Constraint:
-	 *     {smallBoolean}
+	 *     name=ID
 	 */
-	protected void sequence_smallBoolean(ISerializationContext context, smallBoolean semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Type returns smallInteger
-	 *     smallInteger returns smallInteger
-	 *
-	 * Constraint:
-	 *     {smallInteger}
-	 */
-	protected void sequence_smallInteger(ISerializationContext context, smallInteger semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Type returns smallReal
-	 *     smallReal returns smallReal
-	 *
-	 * Constraint:
-	 *     {smallReal}
-	 */
-	protected void sequence_smallReal(ISerializationContext context, smallReal semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Type returns smallString
-	 *     smallString returns smallString
-	 *
-	 * Constraint:
-	 *     {smallString}
-	 */
-	protected void sequence_smallString(ISerializationContext context, smallString semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_Type(ISerializationContext context, Type semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.DIAGRAM_ENTITY__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.DIAGRAM_ENTITY__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTypeAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	

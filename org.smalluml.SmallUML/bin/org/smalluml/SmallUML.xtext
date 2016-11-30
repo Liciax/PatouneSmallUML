@@ -10,17 +10,25 @@ Diagram returns Diagram:
 	'Diagram'
 	name=ID
 	'{'
-	(entities+=AbstractEntity)*
+	(entities+=DiagramEntity)*
 	'}'
 ;
 
+DiagramEntity returns DiagramEntity:
+	AbstractEntity | Association 
+;
+
+
 // Rule grouping AbstractEntity's related rules
 AbstractEntity returns AbstractEntity:
-	Class | Enumeration | Association;
+	Class | Enumeration | Type | Date | Timestamp
+;
 
-// Rule grouping Type's related rules
 Type returns Type:
-	smallBoolean | smallInteger | smallReal | smallString
+	{Type}
+	'Type'
+	name=ID
+	';'
 ;
 
 // Rule generating a Class
@@ -37,19 +45,19 @@ Class returns Class:
 // Rule generating an Attribute
 Attribute returns Attribute:
 	{Attribute}
-	name=ID ':' type=Type
+	name=ID ':' type=[AbstractEntity|EString]
 ;
 
 // Rule generating an Operation
 Operation returns Operation:
 	{Operation}
-	(returnType=Type)?  name=EString '(' (parameters+=Parameter)? (',' parameters+=Parameter)* ')'
+	(returnType=[AbstractEntity|EString])?  name=EString '(' (parameters+=Parameter)? (',' parameters+=Parameter)* ')'
 ;
 
 // Rule generating a Parameter
 Parameter returns Parameter:
 	{Parameter}
-	(type=Type ':')? name=EString
+	(type=[AbstractEntity|EString] ':')? name=EString
 ;
 
 // Rule generating an Association, with 2+ role
@@ -84,30 +92,10 @@ Enumeration returns Enumeration:
 		elements+=EString (',' elements+=EString)*
 	'}';
 
-// Collection of types from SmallUML Metamodel
-smallBoolean returns smallBoolean:
-	{smallBoolean}
-	'smallBoolean'
-	;
-
-smallInteger returns smallInteger:
-	{smallInteger}
-	'smallInteger'
-	;
-
-smallReal returns smallReal:
-	{smallReal}
-	'smallReal'
-	;
-
-smallString returns smallString:
-	{smallString}
-	'smallString'
-	;
-
 Date returns Date:
 	{Date}
 	'Date'
+	name=ID
 	'{'
 		('day' day=EString)?
 		('month' month=EString)?
@@ -118,6 +106,7 @@ Date returns Date:
 Timestamp returns Timestamp:
 	{Timestamp}
 	'Timestamp'
+	name=ID
 	'{'
 		('hours' hours=EInt)?
 		('minutes' minutes=EInt)?
