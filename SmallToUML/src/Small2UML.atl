@@ -31,19 +31,8 @@ rule SmallClass2Class {
 			name <- f.name,
 			ownedAttribute <- f.attributes,
 			ownedOperation <- f.operations,
-			--superClass <- Set{f.extends},
+			superClass <- f.extends,
 			isAbstract <- f.abstract
-		)	
-}
-
-rule SmallExtends {
-	from
-		pere : MM!Class,
-		fils : MM!Class (fils.extends = pere)
-	to
-		t : MM1!Generalization (
-			source <- fils,
-			target <- pere
 		)	
 }
 
@@ -62,8 +51,80 @@ rule SmallOperation2Operation {
 		f : MM!Operation
 	to
 		t : MM1!Operation (
-			name <- f.name
-			--type <- f.returnType,
-			--ownedParameter <- f.parameters
+			name <- f.name,
+			type <- f.returnType,
+			ownedParameter <- f.parameters
+		)
+}
+
+rule SmallParameter2Parameter {
+	from
+		f : MM!Parameter
+	to
+		t : MM1!Parameter (
+			name <- f.name,
+			type <- f.type
+		)
+}
+
+-- rule used to convert Enumeration's values into UML properties
+lazy rule EString2Property {
+	from
+		f : String
+	to
+		t : MM1!Property (
+			name <- f	
+		)
+}
+
+rule SmallEnumeration2Enumeration {
+	from
+		f : MM!Enumeration
+	to
+		t : MM1!Enumeration (
+			name <- f.name,
+			ownedAttribute <- f.elements->collect(elt | thisModule.EString2Property(elt))
+		)
+}
+
+rule SmallAssociation2Association {
+	from
+		f : MM!Association
+	to
+		t : MM1!Association (
+			name <- f.name,
+			memberEnd <- f.roles->collect(role | thisModule.SmallRole2Role(role))
+		)
+}
+
+lazy rule SmallLowerBound2LowerBound {
+	from
+		f : String
+	to
+		t : MM1!LiteralString (
+			name <- 'LowerBound',
+			value <- f	
+		)
+}
+
+lazy rule SmallUpperBound2UpperBound {
+	from
+		f : String
+	to
+		t : MM1!LiteralString (
+			name <- 'UpperBound',
+			value <- f	
+		)
+}
+
+lazy rule SmallRole2Role {
+	from
+		f : MM!Role
+	to
+		t : MM1!Property (
+			name <- f.name,
+			type <- f.entity,
+			lowerValue <- thisModule.SmallLowerBound2LowerBound(f.cardinality.lowerBound),
+			upperValue <- thisModule.SmallUpperBound2UpperBound(f.cardinality.upperBound)
 		)
 }

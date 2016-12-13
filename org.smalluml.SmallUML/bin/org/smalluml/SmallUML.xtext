@@ -21,7 +21,7 @@ DiagramEntity returns DiagramEntity:
 
 // Rule grouping AbstractEntity's related rules
 AbstractEntity returns AbstractEntity:
-	Class | Enumeration | Type | Date | Timestamp
+	Class | Enumeration | Type
 ;
 
 Type returns Type:
@@ -90,27 +90,6 @@ Enumeration returns Enumeration:
 	name=ID
 	'{'
 		elements+=EString (',' elements+=EString)*
-	'}';
-
-Date returns Date:
-	{Date}
-	'Date'
-	name=ID
-	'{'
-		('day' day=EString)?
-		('month' month=EString)?
-		('year' year=EString)?
-		('timestamp' timestamp=[Timestamp|EString])?
-	'}';
-
-Timestamp returns Timestamp:
-	{Timestamp}
-	'Timestamp'
-	name=ID
-	'{'
-		('hours' hours=EInt)?
-		('minutes' minutes=EInt)?
-		('seconds' seconds=EInt)?
 	'}';
 
 // Types from ecore
