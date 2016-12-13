@@ -4,32 +4,54 @@
 module Small2UML;
 create OUT : MM1 from IN : MM;
 
+rule SmallDiagram2Diagram {
+	from
+		f : MM!Diagram
+	to
+		t : MM1!Package (
+			name <- f.name,
+			packagedElement <- f.entities
+		)
+}
+
 rule SmallType2Type {
 	from
-		f: MM!Type
+		f : MM!Type
 	to
-		t: MM1!Type (
+		t : MM1!DataType (
 			name <- f.name
 		)
 }
 
 rule SmallClass2Class {
 	from
-		f: MM!Class
+		f : MM!Class
 	to
-		t: MM1!Class (
+		t1 : MM1!Class (
+			name <- f.name,
+			ownedAttribute <- f.attributes,
 			ownedOperation <- f.operations,
-			superClass <- f.extends,
-			attribute <- f.attributes,
+			--superClass <- Set{f.extends},
 			isAbstract <- f.abstract
-		)
+		)	
+}
+
+rule SmallExtends {
+	from
+		pere : MM!Class,
+		fils : MM!Class (fils.extends = pere)
+	to
+		t : MM1!Generalization (
+			source <- fils,
+			target <- pere
+		)	
 }
 
 rule SmallAttribute2Attribute {
 	from
-		f: MM!Attribute
+		f : MM!Attribute
 	to
-		t: MM1!Property (
+		t : MM1!Property (
 			name <- f.name,
 			type <- f.type
 		)
@@ -37,11 +59,11 @@ rule SmallAttribute2Attribute {
 
 rule SmallOperation2Operation {
 	from
-		f: MM!Operation
+		f : MM!Operation
 	to
-		t: MM1!Operation (
-			name <- f.name,
-			type <- f.returnType,
-			ownedParameter <- f.parameters
+		t : MM1!Operation (
+			name <- f.name
+			--type <- f.returnType,
+			--ownedParameter <- f.parameters
 		)
 }
