@@ -2,49 +2,20 @@
  */
 package smalluml;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Diagram Entity</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link smalluml.DiagramEntity#getName <em>Name</em>}</li>
- * </ul>
+ * <!-- begin-model-doc -->
+ * A DiagramEntity represent all entites in a SmallUML Diagram
+ * <!-- end-model-doc -->
+ *
  *
  * @see smalluml.SmallumlPackage#getDiagramEntity()
- * @model
+ * @model abstract="true"
  * @generated
  */
-public interface DiagramEntity extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see smalluml.SmallumlPackage#getDiagramEntity_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link smalluml.DiagramEntity#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
+public interface DiagramEntity extends NamedElement {
 
 } // DiagramEntity

@@ -9,6 +9,10 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Association</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * An Association represent a relation between two or more roles
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -30,6 +34,9 @@ public interface Association extends DiagramEntity {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The roles involved in the association
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Roles</em>' containment reference list.
 	 * @see smalluml.SmallumlPackage#getAssociation_Roles()
 	 * @model containment="true" lower="2"

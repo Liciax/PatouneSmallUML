@@ -18,13 +18,11 @@ import org.smalluml.services.SmallUMLGrammarAccess;
 import smalluml.Association;
 import smalluml.Attribute;
 import smalluml.Cardinality;
-import smalluml.Date;
 import smalluml.Diagram;
 import smalluml.Enumeration;
 import smalluml.Operation;
 import smalluml.Role;
 import smalluml.SmallumlPackage;
-import smalluml.Timestamp;
 import smalluml.Type;
 
 @SuppressWarnings("all")
@@ -53,9 +51,6 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case SmallumlPackage.CLASS:
 				sequence_Class(context, (smalluml.Class) semanticObject); 
 				return; 
-			case SmallumlPackage.DATE:
-				sequence_Date(context, (Date) semanticObject); 
-				return; 
 			case SmallumlPackage.DIAGRAM:
 				sequence_Diagram(context, (Diagram) semanticObject); 
 				return; 
@@ -70,9 +65,6 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				return; 
 			case SmallumlPackage.ROLE:
 				sequence_Role(context, (Role) semanticObject); 
-				return; 
-			case SmallumlPackage.TIMESTAMP:
-				sequence_Timestamp(context, (Timestamp) semanticObject); 
 				return; 
 			case SmallumlPackage.TYPE:
 				sequence_Type(context, (Type) semanticObject); 
@@ -104,8 +96,8 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 */
 	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.ATTRIBUTE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.ATTRIBUTE__NAME));
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.NAMED_ELEMENT__NAME));
 			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.ATTRIBUTE__TYPE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.ATTRIBUTE__TYPE));
 		}
@@ -153,20 +145,6 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     )
 	 */
 	protected void sequence_Class(ISerializationContext context, smalluml.Class semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DiagramEntity returns Date
-	 *     AbstractEntity returns Date
-	 *     Date returns Date
-	 *
-	 * Constraint:
-	 *     (name=ID day=EString? month=EString? year=EString? timestamp=[Timestamp|EString]?)
-	 */
-	protected void sequence_Date(ISerializationContext context, Date semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -230,8 +208,8 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 */
 	protected void sequence_Role(ISerializationContext context, Role semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.ROLE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.ROLE__NAME));
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.NAMED_ELEMENT__NAME));
 			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.ROLE__CARDINALITY) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.ROLE__CARDINALITY));
 			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.ROLE__ENTITY) == ValueTransient.YES)
@@ -247,20 +225,6 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
-	 *     DiagramEntity returns Timestamp
-	 *     AbstractEntity returns Timestamp
-	 *     Timestamp returns Timestamp
-	 *
-	 * Constraint:
-	 *     (name=ID hours=EInt? minutes=EInt? seconds=EInt?)
-	 */
-	protected void sequence_Timestamp(ISerializationContext context, Timestamp semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DiagramEntity returns Type
 	 *     AbstractEntity returns Type
 	 *     Type returns Type
@@ -270,8 +234,8 @@ public class SmallUMLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 */
 	protected void sequence_Type(ISerializationContext context, Type semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.DIAGRAM_ENTITY__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.DIAGRAM_ENTITY__NAME));
+			if (transientValues.isValueTransient(semanticObject, SmallumlPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmallumlPackage.Literals.NAMED_ELEMENT__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTypeAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());

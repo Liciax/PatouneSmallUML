@@ -9,6 +9,10 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Cardinality</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A Cardinality represent the lower and the upper bound of a relation
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -30,6 +34,9 @@ public interface Cardinality extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The lower bound of the relation related to the cardinality
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Lower Bound</em>' attribute.
 	 * @see #setLowerBound(String)
 	 * @see smalluml.SmallumlPackage#getCardinality_LowerBound()
@@ -56,6 +63,9 @@ public interface Cardinality extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The upper bound of the relation related to the cardinality
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Upper Bound</em>' attribute.
 	 * @see #setUpperBound(String)
 	 * @see smalluml.SmallumlPackage#getCardinality_UpperBound()

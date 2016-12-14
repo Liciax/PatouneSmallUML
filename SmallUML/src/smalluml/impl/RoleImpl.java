@@ -9,8 +9,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import smalluml.Cardinality;
 import smalluml.Role;
 import smalluml.SmallumlPackage;
@@ -23,34 +21,13 @@ import smalluml.SmallumlPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link smalluml.impl.RoleImpl#getName <em>Name</em>}</li>
  *   <li>{@link smalluml.impl.RoleImpl#getCardinality <em>Cardinality</em>}</li>
  *   <li>{@link smalluml.impl.RoleImpl#getEntity <em>Entity</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
+public class RoleImpl extends NamedElementImpl implements Role {
 	/**
 	 * The cached value of the '{@link #getCardinality() <em>Cardinality</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -88,27 +65,6 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	@Override
 	protected EClass eStaticClass() {
 		return SmallumlPackage.Literals.ROLE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SmallumlPackage.ROLE__NAME, oldName, name));
 	}
 
 	/**
@@ -214,8 +170,6 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SmallumlPackage.ROLE__NAME:
-				return getName();
 			case SmallumlPackage.ROLE__CARDINALITY:
 				return getCardinality();
 			case SmallumlPackage.ROLE__ENTITY:
@@ -233,9 +187,6 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SmallumlPackage.ROLE__NAME:
-				setName((String)newValue);
-				return;
 			case SmallumlPackage.ROLE__CARDINALITY:
 				setCardinality((Cardinality)newValue);
 				return;
@@ -254,9 +205,6 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SmallumlPackage.ROLE__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case SmallumlPackage.ROLE__CARDINALITY:
 				setCardinality((Cardinality)null);
 				return;
@@ -275,30 +223,12 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SmallumlPackage.ROLE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SmallumlPackage.ROLE__CARDINALITY:
 				return cardinality != null;
 			case SmallumlPackage.ROLE__ENTITY:
 				return entity != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
 	}
 
 } //RoleImpl

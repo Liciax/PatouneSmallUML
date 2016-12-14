@@ -98,15 +98,13 @@ public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cClassParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cEnumerationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cTypeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cDateParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cTimestampParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//// Rule grouping AbstractEntity's related rules
 		//AbstractEntity:
-		//	Class | Enumeration | Type | Date | Timestamp;
+		//	Class | Enumeration | Type;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Class | Enumeration | Type | Date | Timestamp
+		//Class | Enumeration | Type
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Class
@@ -117,12 +115,6 @@ public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Type
 		public RuleCall getTypeParserRuleCall_2() { return cTypeParserRuleCall_2; }
-		
-		//Date
-		public RuleCall getDateParserRuleCall_3() { return cDateParserRuleCall_3; }
-		
-		//Timestamp
-		public RuleCall getTimestampParserRuleCall_4() { return cTimestampParserRuleCall_4; }
 	}
 	public class TypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.smalluml.SmallUML.Type");
@@ -691,201 +683,6 @@ public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
-	public class DateElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.smalluml.SmallUML.Date");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cDateAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cDateKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cDayKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cDayAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cDayEStringParserRuleCall_4_1_0 = (RuleCall)cDayAssignment_4_1.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cMonthKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cMonthAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cMonthEStringParserRuleCall_5_1_0 = (RuleCall)cMonthAssignment_5_1.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cYearKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cYearAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cYearEStringParserRuleCall_6_1_0 = (RuleCall)cYearAssignment_6_1.eContents().get(0);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cTimestampKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cTimestampAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final CrossReference cTimestampTimestampCrossReference_7_1_0 = (CrossReference)cTimestampAssignment_7_1.eContents().get(0);
-		private final RuleCall cTimestampTimestampEStringParserRuleCall_7_1_0_1 = (RuleCall)cTimestampTimestampCrossReference_7_1_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		
-		//Date:
-		//	{Date}
-		//	'Date'
-		//	name=ID
-		//	'{' ('day' day=EString)? ('month' month=EString)? ('year' year=EString)? ('timestamp' timestamp=[Timestamp|EString])?
-		//	'}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{Date} 'Date' name=ID '{' ('day' day=EString)? ('month' month=EString)? ('year' year=EString)? ('timestamp'
-		//timestamp=[Timestamp|EString])? '}'
-		public Group getGroup() { return cGroup; }
-		
-		//{Date}
-		public Action getDateAction_0() { return cDateAction_0; }
-		
-		//'Date'
-		public Keyword getDateKeyword_1() { return cDateKeyword_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
-		
-		//('day' day=EString)?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'day'
-		public Keyword getDayKeyword_4_0() { return cDayKeyword_4_0; }
-		
-		//day=EString
-		public Assignment getDayAssignment_4_1() { return cDayAssignment_4_1; }
-		
-		//EString
-		public RuleCall getDayEStringParserRuleCall_4_1_0() { return cDayEStringParserRuleCall_4_1_0; }
-		
-		//('month' month=EString)?
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//'month'
-		public Keyword getMonthKeyword_5_0() { return cMonthKeyword_5_0; }
-		
-		//month=EString
-		public Assignment getMonthAssignment_5_1() { return cMonthAssignment_5_1; }
-		
-		//EString
-		public RuleCall getMonthEStringParserRuleCall_5_1_0() { return cMonthEStringParserRuleCall_5_1_0; }
-		
-		//('year' year=EString)?
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//'year'
-		public Keyword getYearKeyword_6_0() { return cYearKeyword_6_0; }
-		
-		//year=EString
-		public Assignment getYearAssignment_6_1() { return cYearAssignment_6_1; }
-		
-		//EString
-		public RuleCall getYearEStringParserRuleCall_6_1_0() { return cYearEStringParserRuleCall_6_1_0; }
-		
-		//('timestamp' timestamp=[Timestamp|EString])?
-		public Group getGroup_7() { return cGroup_7; }
-		
-		//'timestamp'
-		public Keyword getTimestampKeyword_7_0() { return cTimestampKeyword_7_0; }
-		
-		//timestamp=[Timestamp|EString]
-		public Assignment getTimestampAssignment_7_1() { return cTimestampAssignment_7_1; }
-		
-		//[Timestamp|EString]
-		public CrossReference getTimestampTimestampCrossReference_7_1_0() { return cTimestampTimestampCrossReference_7_1_0; }
-		
-		//EString
-		public RuleCall getTimestampTimestampEStringParserRuleCall_7_1_0_1() { return cTimestampTimestampEStringParserRuleCall_7_1_0_1; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
-	}
-	public class TimestampElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.smalluml.SmallUML.Timestamp");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cTimestampAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cTimestampKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cHoursKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cHoursAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cHoursEIntParserRuleCall_4_1_0 = (RuleCall)cHoursAssignment_4_1.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cMinutesKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cMinutesAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cMinutesEIntParserRuleCall_5_1_0 = (RuleCall)cMinutesAssignment_5_1.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cSecondsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cSecondsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cSecondsEIntParserRuleCall_6_1_0 = (RuleCall)cSecondsAssignment_6_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		
-		//Timestamp:
-		//	{Timestamp}
-		//	'Timestamp'
-		//	name=ID
-		//	'{' ('hours' hours=EInt)? ('minutes' minutes=EInt)? ('seconds' seconds=EInt)?
-		//	'}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{Timestamp} 'Timestamp' name=ID '{' ('hours' hours=EInt)? ('minutes' minutes=EInt)? ('seconds' seconds=EInt)? '}'
-		public Group getGroup() { return cGroup; }
-		
-		//{Timestamp}
-		public Action getTimestampAction_0() { return cTimestampAction_0; }
-		
-		//'Timestamp'
-		public Keyword getTimestampKeyword_1() { return cTimestampKeyword_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
-		
-		//('hours' hours=EInt)?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'hours'
-		public Keyword getHoursKeyword_4_0() { return cHoursKeyword_4_0; }
-		
-		//hours=EInt
-		public Assignment getHoursAssignment_4_1() { return cHoursAssignment_4_1; }
-		
-		//EInt
-		public RuleCall getHoursEIntParserRuleCall_4_1_0() { return cHoursEIntParserRuleCall_4_1_0; }
-		
-		//('minutes' minutes=EInt)?
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//'minutes'
-		public Keyword getMinutesKeyword_5_0() { return cMinutesKeyword_5_0; }
-		
-		//minutes=EInt
-		public Assignment getMinutesAssignment_5_1() { return cMinutesAssignment_5_1; }
-		
-		//EInt
-		public RuleCall getMinutesEIntParserRuleCall_5_1_0() { return cMinutesEIntParserRuleCall_5_1_0; }
-		
-		//('seconds' seconds=EInt)?
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//'seconds'
-		public Keyword getSecondsKeyword_6_0() { return cSecondsKeyword_6_0; }
-		
-		//seconds=EInt
-		public Assignment getSecondsAssignment_6_1() { return cSecondsAssignment_6_1; }
-		
-		//EInt
-		public RuleCall getSecondsEIntParserRuleCall_6_1_0() { return cSecondsEIntParserRuleCall_6_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
-	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.smalluml.SmallUML.EString");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -958,8 +755,6 @@ public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 	private final RoleElements pRole;
 	private final CardinalityElements pCardinality;
 	private final EnumerationElements pEnumeration;
-	private final DateElements pDate;
-	private final TimestampElements pTimestamp;
 	private final EStringElements pEString;
 	private final EBooleanElements pEBoolean;
 	private final EIntElements pEInt;
@@ -985,8 +780,6 @@ public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pRole = new RoleElements();
 		this.pCardinality = new CardinalityElements();
 		this.pEnumeration = new EnumerationElements();
-		this.pDate = new DateElements();
-		this.pTimestamp = new TimestampElements();
 		this.pEString = new EStringElements();
 		this.pEBoolean = new EBooleanElements();
 		this.pEInt = new EIntElements();
@@ -1047,7 +840,7 @@ public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//// Rule grouping AbstractEntity's related rules
 	//AbstractEntity:
-	//	Class | Enumeration | Type | Date | Timestamp;
+	//	Class | Enumeration | Type;
 	public AbstractEntityElements getAbstractEntityAccess() {
 		return pAbstractEntity;
 	}
@@ -1173,34 +966,6 @@ public class SmallUMLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEnumerationRule() {
 		return getEnumerationAccess().getRule();
-	}
-	
-	//Date:
-	//	{Date}
-	//	'Date'
-	//	name=ID
-	//	'{' ('day' day=EString)? ('month' month=EString)? ('year' year=EString)? ('timestamp' timestamp=[Timestamp|EString])?
-	//	'}';
-	public DateElements getDateAccess() {
-		return pDate;
-	}
-	
-	public ParserRule getDateRule() {
-		return getDateAccess().getRule();
-	}
-	
-	//Timestamp:
-	//	{Timestamp}
-	//	'Timestamp'
-	//	name=ID
-	//	'{' ('hours' hours=EInt)? ('minutes' minutes=EInt)? ('seconds' seconds=EInt)?
-	//	'}';
-	public TimestampElements getTimestampAccess() {
-		return pTimestamp;
-	}
-	
-	public ParserRule getTimestampRule() {
-		return getTimestampAccess().getRule();
 	}
 	
 	//// Types from ecore

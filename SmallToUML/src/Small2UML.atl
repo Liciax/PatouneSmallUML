@@ -1,6 +1,8 @@
 -- @path MM=/SmallUML/model/smalluml.ecore
 -- @path MM1=/UML/model/uml.ecore
 
+-- ATL transformation script - MDE project, M2 ALMA 2016/2017
+-- Authors : Alicia Boucard, Thomas Minier
 module Small2UML;
 create OUT : MM1 from IN : MM;
 
@@ -97,7 +99,7 @@ rule SmallAssociation2Association {
 		)
 }
 
-lazy rule SmallLowerBound2LowerBound {
+lazy rule EString2LowerBound {
 	from
 		f : String
 	to
@@ -107,7 +109,7 @@ lazy rule SmallLowerBound2LowerBound {
 		)
 }
 
-lazy rule SmallUpperBound2UpperBound {
+lazy rule EString2UpperBound {
 	from
 		f : String
 	to
@@ -124,7 +126,7 @@ lazy rule SmallRole2Role {
 		t : MM1!Property (
 			name <- f.name,
 			type <- f.entity,
-			lowerValue <- thisModule.SmallLowerBound2LowerBound(f.cardinality.lowerBound),
-			upperValue <- thisModule.SmallUpperBound2UpperBound(f.cardinality.upperBound)
+			lowerValue <- thisModule.EString2LowerBound(f.cardinality.lowerBound),
+			upperValue <- thisModule.EString2UpperBound(f.cardinality.upperBound)
 		)
 }

@@ -13,15 +13,14 @@ import smalluml.AbstractEntity;
 import smalluml.Association;
 import smalluml.Attribute;
 import smalluml.Cardinality;
-import smalluml.Date;
 import smalluml.Diagram;
 import smalluml.DiagramEntity;
 import smalluml.Enumeration;
+import smalluml.NamedElement;
 import smalluml.Operation;
 import smalluml.Parameter;
 import smalluml.Role;
 import smalluml.SmallumlPackage;
-import smalluml.Timestamp;
 import smalluml.Type;
 
 /**
@@ -81,6 +80,10 @@ public class SmallumlAdapterFactory extends AdapterFactoryImpl {
 	protected SmallumlSwitch<Adapter> modelSwitch =
 		new SmallumlSwitch<Adapter>() {
 			@Override
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
+			}
+			@Override
 			public Adapter caseDiagramEntity(DiagramEntity object) {
 				return createDiagramEntityAdapter();
 			}
@@ -129,14 +132,6 @@ public class SmallumlAdapterFactory extends AdapterFactoryImpl {
 				return createTypeAdapter();
 			}
 			@Override
-			public Adapter caseDate(Date object) {
-				return createDateAdapter();
-			}
-			@Override
-			public Adapter caseTimestamp(Timestamp object) {
-				return createTimestampAdapter();
-			}
-			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -155,6 +150,20 @@ public class SmallumlAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link smalluml.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see smalluml.NamedElement
+	 * @generated
+	 */
+	public Adapter createNamedElementAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link smalluml.DiagramEntity <em>Diagram Entity</em>}'.
@@ -321,34 +330,6 @@ public class SmallumlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link smalluml.Date <em>Date</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see smalluml.Date
-	 * @generated
-	 */
-	public Adapter createDateAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link smalluml.Timestamp <em>Timestamp</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see smalluml.Timestamp
-	 * @generated
-	 */
-	public Adapter createTimestampAdapter() {
 		return null;
 	}
 

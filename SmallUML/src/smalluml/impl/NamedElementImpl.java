@@ -5,43 +5,53 @@ package smalluml.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import smalluml.AbstractEntity;
-import smalluml.Attribute;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import smalluml.NamedElement;
 import smalluml.SmallumlPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Attribute</b></em>'.
+ * An implementation of the model object '<em><b>Named Element</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link smalluml.impl.AttributeImpl#getType <em>Type</em>}</li>
+ *   <li>{@link smalluml.impl.NamedElementImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AttributeImpl extends NamedElementImpl implements Attribute {
+public abstract class NamedElementImpl extends MinimalEObjectImpl.Container implements NamedElement {
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected AbstractEntity type;
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AttributeImpl() {
+	protected NamedElementImpl() {
 		super();
 	}
 
@@ -52,7 +62,7 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SmallumlPackage.Literals.ATTRIBUTE;
+		return SmallumlPackage.Literals.NAMED_ELEMENT;
 	}
 
 	/**
@@ -60,16 +70,8 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractEntity getType() {
-		if (type != null && type.eIsProxy()) {
-			InternalEObject oldType = (InternalEObject)type;
-			type = (AbstractEntity)eResolveProxy(oldType);
-			if (type != oldType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SmallumlPackage.ATTRIBUTE__TYPE, oldType, type));
-			}
-		}
-		return type;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -77,20 +79,11 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractEntity basicGetType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(AbstractEntity newType) {
-		AbstractEntity oldType = type;
-		type = newType;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SmallumlPackage.ATTRIBUTE__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, SmallumlPackage.NAMED_ELEMENT__NAME, oldName, name));
 	}
 
 	/**
@@ -101,9 +94,8 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SmallumlPackage.ATTRIBUTE__TYPE:
-				if (resolve) return getType();
-				return basicGetType();
+			case SmallumlPackage.NAMED_ELEMENT__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -116,8 +108,8 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SmallumlPackage.ATTRIBUTE__TYPE:
-				setType((AbstractEntity)newValue);
+			case SmallumlPackage.NAMED_ELEMENT__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -131,8 +123,8 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SmallumlPackage.ATTRIBUTE__TYPE:
-				setType((AbstractEntity)null);
+			case SmallumlPackage.NAMED_ELEMENT__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -146,10 +138,26 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SmallumlPackage.ATTRIBUTE__TYPE:
-				return type != null;
+			case SmallumlPackage.NAMED_ELEMENT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //AttributeImpl
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
+
+} //NamedElementImpl

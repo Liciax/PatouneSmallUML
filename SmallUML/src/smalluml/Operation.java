@@ -4,18 +4,19 @@ package smalluml;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Operation</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A Operation represent an operation, specified by its name, its return type and its parameters.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link smalluml.Operation#getName <em>Name</em>}</li>
  *   <li>{@link smalluml.Operation#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link smalluml.Operation#getParameters <em>Parameters</em>}</li>
  * </ul>
@@ -24,33 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Operation extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see smalluml.SmallumlPackage#getOperation_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link smalluml.Operation#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
+public interface Operation extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Return Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -59,6 +34,9 @@ public interface Operation extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The type of the element returned by this operation
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Return Type</em>' reference.
 	 * @see #setReturnType(AbstractEntity)
 	 * @see smalluml.SmallumlPackage#getOperation_ReturnType()
@@ -86,6 +64,9 @@ public interface Operation extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The parameters held by the operation
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Parameters</em>' containment reference list.
 	 * @see smalluml.SmallumlPackage#getOperation_Parameters()
 	 * @model containment="true"

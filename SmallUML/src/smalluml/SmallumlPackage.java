@@ -57,14 +57,14 @@ public interface SmallumlPackage extends EPackage {
 	SmallumlPackage eINSTANCE = smalluml.impl.SmallumlPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link smalluml.impl.DiagramEntityImpl <em>Diagram Entity</em>}' class.
+	 * The meta object id for the '{@link smalluml.impl.NamedElementImpl <em>Named Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see smalluml.impl.DiagramEntityImpl
-	 * @see smalluml.impl.SmallumlPackageImpl#getDiagramEntity()
+	 * @see smalluml.impl.NamedElementImpl
+	 * @see smalluml.impl.SmallumlPackageImpl#getNamedElement()
 	 * @generated
 	 */
-	int DIAGRAM_ENTITY = 0;
+	int NAMED_ELEMENT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -73,7 +73,44 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM_ENTITY__NAME = 0;
+	int NAMED_ELEMENT__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Named Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Named Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link smalluml.impl.DiagramEntityImpl <em>Diagram Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see smalluml.impl.DiagramEntityImpl
+	 * @see smalluml.impl.SmallumlPackageImpl#getDiagramEntity()
+	 * @generated
+	 */
+	int DIAGRAM_ENTITY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_ENTITY__NAME = NAMED_ELEMENT__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Diagram Entity</em>' class.
@@ -82,7 +119,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM_ENTITY_FEATURE_COUNT = 1;
+	int DIAGRAM_ENTITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Diagram Entity</em>' class.
@@ -91,7 +128,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM_ENTITY_OPERATION_COUNT = 0;
+	int DIAGRAM_ENTITY_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link smalluml.impl.AbstractEntityImpl <em>Abstract Entity</em>}' class.
@@ -101,7 +138,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @see smalluml.impl.SmallumlPackageImpl#getAbstractEntity()
 	 * @generated
 	 */
-	int ABSTRACT_ENTITY = 1;
+	int ABSTRACT_ENTITY = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -138,7 +175,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @see smalluml.impl.SmallumlPackageImpl#getDiagram()
 	 * @generated
 	 */
-	int DIAGRAM = 2;
+	int DIAGRAM = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -147,7 +184,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__NAME = 0;
+	int DIAGRAM__NAME = NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Entities</b></em>' containment reference list.
@@ -156,7 +193,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__ENTITIES = 1;
+	int DIAGRAM__ENTITIES = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Diagram</em>' class.
@@ -165,7 +202,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM_FEATURE_COUNT = 2;
+	int DIAGRAM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Diagram</em>' class.
@@ -174,7 +211,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM_OPERATION_COUNT = 0;
+	int DIAGRAM_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link smalluml.impl.ClassImpl <em>Class</em>}' class.
@@ -184,7 +221,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @see smalluml.impl.SmallumlPackageImpl#getClass_()
 	 * @generated
 	 */
-	int CLASS = 3;
+	int CLASS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -257,7 +294,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @see smalluml.impl.SmallumlPackageImpl#getAttribute()
 	 * @generated
 	 */
-	int ATTRIBUTE = 4;
+	int ATTRIBUTE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -266,7 +303,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__NAME = 0;
+	int ATTRIBUTE__NAME = NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -275,7 +312,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__TYPE = 1;
+	int ATTRIBUTE__TYPE = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
@@ -284,7 +321,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_FEATURE_COUNT = 2;
+	int ATTRIBUTE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Attribute</em>' class.
@@ -293,7 +330,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_OPERATION_COUNT = 0;
+	int ATTRIBUTE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link smalluml.impl.OperationImpl <em>Operation</em>}' class.
@@ -303,7 +340,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @see smalluml.impl.SmallumlPackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 5;
+	int OPERATION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -312,7 +349,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__NAME = 0;
+	int OPERATION__NAME = NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Return Type</b></em>' reference.
@@ -321,7 +358,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__RETURN_TYPE = 1;
+	int OPERATION__RETURN_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -330,7 +367,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__PARAMETERS = 2;
+	int OPERATION__PARAMETERS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
@@ -339,7 +376,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = 3;
+	int OPERATION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Operation</em>' class.
@@ -348,7 +385,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_OPERATION_COUNT = 0;
+	int OPERATION_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link smalluml.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -358,7 +395,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @see smalluml.impl.SmallumlPackageImpl#getParameter()
 	 * @generated
 	 */
-	int PARAMETER = 6;
+	int PARAMETER = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -367,7 +404,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__NAME = 0;
+	int PARAMETER__NAME = NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -376,7 +413,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__TYPE = 1;
+	int PARAMETER__TYPE = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
@@ -385,7 +422,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = 2;
+	int PARAMETER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
@@ -394,7 +431,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_OPERATION_COUNT = 0;
+	int PARAMETER_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link smalluml.impl.EnumerationImpl <em>Enumeration</em>}' class.
@@ -404,7 +441,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @see smalluml.impl.SmallumlPackageImpl#getEnumeration()
 	 * @generated
 	 */
-	int ENUMERATION = 7;
+	int ENUMERATION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -450,7 +487,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @see smalluml.impl.SmallumlPackageImpl#getCardinality()
 	 * @generated
 	 */
-	int CARDINALITY = 8;
+	int CARDINALITY = 9;
 
 	/**
 	 * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
@@ -496,7 +533,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @see smalluml.impl.SmallumlPackageImpl#getRole()
 	 * @generated
 	 */
-	int ROLE = 9;
+	int ROLE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -505,7 +542,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE__NAME = 0;
+	int ROLE__NAME = NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Cardinality</b></em>' containment reference.
@@ -514,7 +551,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE__CARDINALITY = 1;
+	int ROLE__CARDINALITY = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Entity</b></em>' reference.
@@ -523,7 +560,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE__ENTITY = 2;
+	int ROLE__ENTITY = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Role</em>' class.
@@ -532,7 +569,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE_FEATURE_COUNT = 3;
+	int ROLE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Role</em>' class.
@@ -541,7 +578,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE_OPERATION_COUNT = 0;
+	int ROLE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link smalluml.impl.AssociationImpl <em>Association</em>}' class.
@@ -551,7 +588,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @see smalluml.impl.SmallumlPackageImpl#getAssociation()
 	 * @generated
 	 */
-	int ASSOCIATION = 10;
+	int ASSOCIATION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -597,7 +634,7 @@ public interface SmallumlPackage extends EPackage {
 	 * @see smalluml.impl.SmallumlPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 11;
+	int TYPE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -627,142 +664,25 @@ public interface SmallumlPackage extends EPackage {
 	int TYPE_OPERATION_COUNT = ABSTRACT_ENTITY_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link smalluml.impl.DateImpl <em>Date</em>}' class.
+	 * Returns the meta object for class '{@link smalluml.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see smalluml.impl.DateImpl
-	 * @see smalluml.impl.SmallumlPackageImpl#getDate()
+	 * @return the meta object for class '<em>Named Element</em>'.
+	 * @see smalluml.NamedElement
 	 * @generated
 	 */
-	int DATE = 12;
+	EClass getNamedElement();
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * Returns the meta object for the attribute '{@link smalluml.NamedElement#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE__NAME = TYPE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Day</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE__DAY = TYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Month</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE__MONTH = TYPE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Year</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE__YEAR = TYPE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Timestamp</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE__TIMESTAMP = TYPE_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Date</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of operations of the '<em>Date</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link smalluml.impl.TimestampImpl <em>Timestamp</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see smalluml.impl.TimestampImpl
-	 * @see smalluml.impl.SmallumlPackageImpl#getTimestamp()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see smalluml.NamedElement#getName()
+	 * @see #getNamedElement()
 	 * @generated
 	 */
-	int TIMESTAMP = 13;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMESTAMP__NAME = TYPE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Hours</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMESTAMP__HOURS = TYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Minutes</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMESTAMP__MINUTES = TYPE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Seconds</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMESTAMP__SECONDS = TYPE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Timestamp</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMESTAMP_FEATURE_COUNT = TYPE_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of operations of the '<em>Timestamp</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMESTAMP_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
-
+	EAttribute getNamedElement_Name();
 
 	/**
 	 * Returns the meta object for class '{@link smalluml.DiagramEntity <em>Diagram Entity</em>}'.
@@ -773,17 +693,6 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDiagramEntity();
-
-	/**
-	 * Returns the meta object for the attribute '{@link smalluml.DiagramEntity#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see smalluml.DiagramEntity#getName()
-	 * @see #getDiagramEntity()
-	 * @generated
-	 */
-	EAttribute getDiagramEntity_Name();
 
 	/**
 	 * Returns the meta object for class '{@link smalluml.AbstractEntity <em>Abstract Entity</em>}'.
@@ -804,17 +713,6 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDiagram();
-
-	/**
-	 * Returns the meta object for the attribute '{@link smalluml.Diagram#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see smalluml.Diagram#getName()
-	 * @see #getDiagram()
-	 * @generated
-	 */
-	EAttribute getDiagram_Name();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link smalluml.Diagram#getEntities <em>Entities</em>}'.
@@ -892,17 +790,6 @@ public interface SmallumlPackage extends EPackage {
 	EClass getAttribute();
 
 	/**
-	 * Returns the meta object for the attribute '{@link smalluml.Attribute#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see smalluml.Attribute#getName()
-	 * @see #getAttribute()
-	 * @generated
-	 */
-	EAttribute getAttribute_Name();
-
-	/**
 	 * Returns the meta object for the reference '{@link smalluml.Attribute#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -922,17 +809,6 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOperation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link smalluml.Operation#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see smalluml.Operation#getName()
-	 * @see #getOperation()
-	 * @generated
-	 */
-	EAttribute getOperation_Name();
 
 	/**
 	 * Returns the meta object for the reference '{@link smalluml.Operation#getReturnType <em>Return Type</em>}'.
@@ -965,17 +841,6 @@ public interface SmallumlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getParameter();
-
-	/**
-	 * Returns the meta object for the attribute '{@link smalluml.Parameter#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see smalluml.Parameter#getName()
-	 * @see #getParameter()
-	 * @generated
-	 */
-	EAttribute getParameter_Name();
 
 	/**
 	 * Returns the meta object for the reference '{@link smalluml.Parameter#getType <em>Type</em>}'.
@@ -1052,17 +917,6 @@ public interface SmallumlPackage extends EPackage {
 	EClass getRole();
 
 	/**
-	 * Returns the meta object for the attribute '{@link smalluml.Role#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see smalluml.Role#getName()
-	 * @see #getRole()
-	 * @generated
-	 */
-	EAttribute getRole_Name();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link smalluml.Role#getCardinality <em>Cardinality</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1116,103 +970,6 @@ public interface SmallumlPackage extends EPackage {
 	EClass getType();
 
 	/**
-	 * Returns the meta object for class '{@link smalluml.Date <em>Date</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Date</em>'.
-	 * @see smalluml.Date
-	 * @generated
-	 */
-	EClass getDate();
-
-	/**
-	 * Returns the meta object for the attribute '{@link smalluml.Date#getDay <em>Day</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Day</em>'.
-	 * @see smalluml.Date#getDay()
-	 * @see #getDate()
-	 * @generated
-	 */
-	EAttribute getDate_Day();
-
-	/**
-	 * Returns the meta object for the attribute '{@link smalluml.Date#getMonth <em>Month</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Month</em>'.
-	 * @see smalluml.Date#getMonth()
-	 * @see #getDate()
-	 * @generated
-	 */
-	EAttribute getDate_Month();
-
-	/**
-	 * Returns the meta object for the attribute '{@link smalluml.Date#getYear <em>Year</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Year</em>'.
-	 * @see smalluml.Date#getYear()
-	 * @see #getDate()
-	 * @generated
-	 */
-	EAttribute getDate_Year();
-
-	/**
-	 * Returns the meta object for the reference '{@link smalluml.Date#getTimestamp <em>Timestamp</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Timestamp</em>'.
-	 * @see smalluml.Date#getTimestamp()
-	 * @see #getDate()
-	 * @generated
-	 */
-	EReference getDate_Timestamp();
-
-	/**
-	 * Returns the meta object for class '{@link smalluml.Timestamp <em>Timestamp</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Timestamp</em>'.
-	 * @see smalluml.Timestamp
-	 * @generated
-	 */
-	EClass getTimestamp();
-
-	/**
-	 * Returns the meta object for the attribute '{@link smalluml.Timestamp#getHours <em>Hours</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Hours</em>'.
-	 * @see smalluml.Timestamp#getHours()
-	 * @see #getTimestamp()
-	 * @generated
-	 */
-	EAttribute getTimestamp_Hours();
-
-	/**
-	 * Returns the meta object for the attribute '{@link smalluml.Timestamp#getMinutes <em>Minutes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Minutes</em>'.
-	 * @see smalluml.Timestamp#getMinutes()
-	 * @see #getTimestamp()
-	 * @generated
-	 */
-	EAttribute getTimestamp_Minutes();
-
-	/**
-	 * Returns the meta object for the attribute '{@link smalluml.Timestamp#getSeconds <em>Seconds</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Seconds</em>'.
-	 * @see smalluml.Timestamp#getSeconds()
-	 * @see #getTimestamp()
-	 * @generated
-	 */
-	EAttribute getTimestamp_Seconds();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1236,6 +993,24 @@ public interface SmallumlPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
+		 * The meta object literal for the '{@link smalluml.impl.NamedElementImpl <em>Named Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see smalluml.impl.NamedElementImpl
+		 * @see smalluml.impl.SmallumlPackageImpl#getNamedElement()
+		 * @generated
+		 */
+		EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
+
+		/**
 		 * The meta object literal for the '{@link smalluml.impl.DiagramEntityImpl <em>Diagram Entity</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1244,14 +1019,6 @@ public interface SmallumlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DIAGRAM_ENTITY = eINSTANCE.getDiagramEntity();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIAGRAM_ENTITY__NAME = eINSTANCE.getDiagramEntity_Name();
 
 		/**
 		 * The meta object literal for the '{@link smalluml.impl.AbstractEntityImpl <em>Abstract Entity</em>}' class.
@@ -1272,14 +1039,6 @@ public interface SmallumlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DIAGRAM = eINSTANCE.getDiagram();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIAGRAM__NAME = eINSTANCE.getDiagram_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Entities</b></em>' containment reference list feature.
@@ -1342,14 +1101,6 @@ public interface SmallumlPackage extends EPackage {
 		EClass ATTRIBUTE = eINSTANCE.getAttribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1366,14 +1117,6 @@ public interface SmallumlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass OPERATION = eINSTANCE.getOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OPERATION__NAME = eINSTANCE.getOperation_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Return Type</b></em>' reference feature.
@@ -1400,14 +1143,6 @@ public interface SmallumlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PARAMETER = eINSTANCE.getParameter();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
@@ -1472,14 +1207,6 @@ public interface SmallumlPackage extends EPackage {
 		EClass ROLE = eINSTANCE.getRole();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ROLE__NAME = eINSTANCE.getRole_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Cardinality</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1522,82 +1249,6 @@ public interface SmallumlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TYPE = eINSTANCE.getType();
-
-		/**
-		 * The meta object literal for the '{@link smalluml.impl.DateImpl <em>Date</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see smalluml.impl.DateImpl
-		 * @see smalluml.impl.SmallumlPackageImpl#getDate()
-		 * @generated
-		 */
-		EClass DATE = eINSTANCE.getDate();
-
-		/**
-		 * The meta object literal for the '<em><b>Day</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATE__DAY = eINSTANCE.getDate_Day();
-
-		/**
-		 * The meta object literal for the '<em><b>Month</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATE__MONTH = eINSTANCE.getDate_Month();
-
-		/**
-		 * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATE__YEAR = eINSTANCE.getDate_Year();
-
-		/**
-		 * The meta object literal for the '<em><b>Timestamp</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DATE__TIMESTAMP = eINSTANCE.getDate_Timestamp();
-
-		/**
-		 * The meta object literal for the '{@link smalluml.impl.TimestampImpl <em>Timestamp</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see smalluml.impl.TimestampImpl
-		 * @see smalluml.impl.SmallumlPackageImpl#getTimestamp()
-		 * @generated
-		 */
-		EClass TIMESTAMP = eINSTANCE.getTimestamp();
-
-		/**
-		 * The meta object literal for the '<em><b>Hours</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TIMESTAMP__HOURS = eINSTANCE.getTimestamp_Hours();
-
-		/**
-		 * The meta object literal for the '<em><b>Minutes</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TIMESTAMP__MINUTES = eINSTANCE.getTimestamp_Minutes();
-
-		/**
-		 * The meta object literal for the '<em><b>Seconds</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TIMESTAMP__SECONDS = eINSTANCE.getTimestamp_Seconds();
 
 	}
 

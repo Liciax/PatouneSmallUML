@@ -22,15 +22,6 @@ public interface SmallumlFactory extends EFactory {
 	SmallumlFactory eINSTANCE = smalluml.impl.SmallumlFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Diagram Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Diagram Entity</em>'.
-	 * @generated
-	 */
-	DiagramEntity createDiagramEntity();
-
-	/**
 	 * Returns a new object of class '<em>Diagram</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,24 +110,6 @@ public interface SmallumlFactory extends EFactory {
 	 * @generated
 	 */
 	Type createType();
-
-	/**
-	 * Returns a new object of class '<em>Date</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Date</em>'.
-	 * @generated
-	 */
-	Date createDate();
-
-	/**
-	 * Returns a new object of class '<em>Timestamp</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Timestamp</em>'.
-	 * @generated
-	 */
-	Timestamp createTimestamp();
 
 	/**
 	 * Returns the package supported by this factory.

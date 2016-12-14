@@ -9,6 +9,10 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Class</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A Class represent a entity that holds attributes and operations, and can be part of one or many associations
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -33,6 +37,9 @@ public interface Class extends AbstractEntity {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The attributes held by the class
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Attributes</em>' containment reference list.
 	 * @see smalluml.SmallumlPackage#getClass_Attributes()
 	 * @model containment="true"
@@ -49,6 +56,9 @@ public interface Class extends AbstractEntity {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The operations held by the class
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Operations</em>' containment reference list.
 	 * @see smalluml.SmallumlPackage#getClass_Operations()
 	 * @model containment="true"
@@ -65,6 +75,9 @@ public interface Class extends AbstractEntity {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If the class is abtract or not
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abstract</em>' attribute.
 	 * @see #setAbstract(boolean)
 	 * @see smalluml.SmallumlPackage#getClass_Abstract()
@@ -91,6 +104,9 @@ public interface Class extends AbstractEntity {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The superclass of the class, which is also a Class
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Extends</em>' reference.
 	 * @see #setExtends(Class)
 	 * @see smalluml.SmallumlPackage#getClass_Extends()

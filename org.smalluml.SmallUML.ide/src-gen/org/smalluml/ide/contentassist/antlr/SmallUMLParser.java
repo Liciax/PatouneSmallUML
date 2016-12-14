@@ -58,15 +58,6 @@ public class SmallUMLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCardinalityAccess().getGroup(), "rule__Cardinality__Group__0");
 					put(grammarAccess.getEnumerationAccess().getGroup(), "rule__Enumeration__Group__0");
 					put(grammarAccess.getEnumerationAccess().getGroup_5(), "rule__Enumeration__Group_5__0");
-					put(grammarAccess.getDateAccess().getGroup(), "rule__Date__Group__0");
-					put(grammarAccess.getDateAccess().getGroup_4(), "rule__Date__Group_4__0");
-					put(grammarAccess.getDateAccess().getGroup_5(), "rule__Date__Group_5__0");
-					put(grammarAccess.getDateAccess().getGroup_6(), "rule__Date__Group_6__0");
-					put(grammarAccess.getDateAccess().getGroup_7(), "rule__Date__Group_7__0");
-					put(grammarAccess.getTimestampAccess().getGroup(), "rule__Timestamp__Group__0");
-					put(grammarAccess.getTimestampAccess().getGroup_4(), "rule__Timestamp__Group_4__0");
-					put(grammarAccess.getTimestampAccess().getGroup_5(), "rule__Timestamp__Group_5__0");
-					put(grammarAccess.getTimestampAccess().getGroup_6(), "rule__Timestamp__Group_6__0");
 					put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
 					put(grammarAccess.getDiagramAccess().getNameAssignment_2(), "rule__Diagram__NameAssignment_2");
 					put(grammarAccess.getDiagramAccess().getEntitiesAssignment_4(), "rule__Diagram__EntitiesAssignment_4");
@@ -97,15 +88,6 @@ public class SmallUMLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEnumerationAccess().getNameAssignment_2(), "rule__Enumeration__NameAssignment_2");
 					put(grammarAccess.getEnumerationAccess().getElementsAssignment_4(), "rule__Enumeration__ElementsAssignment_4");
 					put(grammarAccess.getEnumerationAccess().getElementsAssignment_5_1(), "rule__Enumeration__ElementsAssignment_5_1");
-					put(grammarAccess.getDateAccess().getNameAssignment_2(), "rule__Date__NameAssignment_2");
-					put(grammarAccess.getDateAccess().getDayAssignment_4_1(), "rule__Date__DayAssignment_4_1");
-					put(grammarAccess.getDateAccess().getMonthAssignment_5_1(), "rule__Date__MonthAssignment_5_1");
-					put(grammarAccess.getDateAccess().getYearAssignment_6_1(), "rule__Date__YearAssignment_6_1");
-					put(grammarAccess.getDateAccess().getTimestampAssignment_7_1(), "rule__Date__TimestampAssignment_7_1");
-					put(grammarAccess.getTimestampAccess().getNameAssignment_2(), "rule__Timestamp__NameAssignment_2");
-					put(grammarAccess.getTimestampAccess().getHoursAssignment_4_1(), "rule__Timestamp__HoursAssignment_4_1");
-					put(grammarAccess.getTimestampAccess().getMinutesAssignment_5_1(), "rule__Timestamp__MinutesAssignment_5_1");
-					put(grammarAccess.getTimestampAccess().getSecondsAssignment_6_1(), "rule__Timestamp__SecondsAssignment_6_1");
 				}
 			};
 		}

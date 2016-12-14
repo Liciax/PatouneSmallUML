@@ -13,16 +13,15 @@ import smalluml.AbstractEntity;
 import smalluml.Association;
 import smalluml.Attribute;
 import smalluml.Cardinality;
-import smalluml.Date;
 import smalluml.Diagram;
 import smalluml.DiagramEntity;
 import smalluml.Enumeration;
+import smalluml.NamedElement;
 import smalluml.Operation;
 import smalluml.Parameter;
 import smalluml.Role;
 import smalluml.SmallumlFactory;
 import smalluml.SmallumlPackage;
-import smalluml.Timestamp;
 import smalluml.Type;
 
 /**
@@ -32,6 +31,13 @@ import smalluml.Type;
  * @generated
  */
 public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass namedElementEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -117,20 +123,6 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 	private EClass typeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dateEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass timestampEClass = null;
-
-	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -196,8 +188,8 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDiagramEntity() {
-		return diagramEntityEClass;
+	public EClass getNamedElement() {
+		return namedElementEClass;
 	}
 
 	/**
@@ -205,8 +197,17 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagramEntity_Name() {
-		return (EAttribute)diagramEntityEClass.getEStructuralFeatures().get(0);
+	public EAttribute getNamedElement_Name() {
+		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDiagramEntity() {
+		return diagramEntityEClass;
 	}
 
 	/**
@@ -232,17 +233,8 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagram_Name() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getDiagram_Entities() {
-		return (EReference)diagramEClass.getEStructuralFeatures().get(1);
+		return (EReference)diagramEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -304,17 +296,8 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttribute_Name() {
-		return (EAttribute)attributeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getAttribute_Type() {
-		return (EReference)attributeEClass.getEStructuralFeatures().get(1);
+		return (EReference)attributeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -331,17 +314,8 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOperation_Name() {
-		return (EAttribute)operationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getOperation_ReturnType() {
-		return (EReference)operationEClass.getEStructuralFeatures().get(1);
+		return (EReference)operationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -350,7 +324,7 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 	 * @generated
 	 */
 	public EReference getOperation_Parameters() {
-		return (EReference)operationEClass.getEStructuralFeatures().get(2);
+		return (EReference)operationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -367,17 +341,8 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameter_Name() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getParameter_Type() {
-		return (EReference)parameterEClass.getEStructuralFeatures().get(1);
+		return (EReference)parameterEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -439,17 +404,8 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRole_Name() {
-		return (EAttribute)roleEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getRole_Cardinality() {
-		return (EReference)roleEClass.getEStructuralFeatures().get(1);
+		return (EReference)roleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -458,7 +414,7 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 	 * @generated
 	 */
 	public EReference getRole_Entity() {
-		return (EReference)roleEClass.getEStructuralFeatures().get(2);
+		return (EReference)roleEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -493,87 +449,6 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDate() {
-		return dateEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDate_Day() {
-		return (EAttribute)dateEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDate_Month() {
-		return (EAttribute)dateEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDate_Year() {
-		return (EAttribute)dateEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDate_Timestamp() {
-		return (EReference)dateEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTimestamp() {
-		return timestampEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTimestamp_Hours() {
-		return (EAttribute)timestampEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTimestamp_Minutes() {
-		return (EAttribute)timestampEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTimestamp_Seconds() {
-		return (EAttribute)timestampEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public SmallumlFactory getSmallumlFactory() {
 		return (SmallumlFactory)getEFactoryInstance();
 	}
@@ -597,13 +472,14 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 		isCreated = true;
 
 		// Create classes and their features
+		namedElementEClass = createEClass(NAMED_ELEMENT);
+		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
+
 		diagramEntityEClass = createEClass(DIAGRAM_ENTITY);
-		createEAttribute(diagramEntityEClass, DIAGRAM_ENTITY__NAME);
 
 		abstractEntityEClass = createEClass(ABSTRACT_ENTITY);
 
 		diagramEClass = createEClass(DIAGRAM);
-		createEAttribute(diagramEClass, DIAGRAM__NAME);
 		createEReference(diagramEClass, DIAGRAM__ENTITIES);
 
 		classEClass = createEClass(CLASS);
@@ -613,16 +489,13 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 		createEReference(classEClass, CLASS__EXTENDS);
 
 		attributeEClass = createEClass(ATTRIBUTE);
-		createEAttribute(attributeEClass, ATTRIBUTE__NAME);
 		createEReference(attributeEClass, ATTRIBUTE__TYPE);
 
 		operationEClass = createEClass(OPERATION);
-		createEAttribute(operationEClass, OPERATION__NAME);
 		createEReference(operationEClass, OPERATION__RETURN_TYPE);
 		createEReference(operationEClass, OPERATION__PARAMETERS);
 
 		parameterEClass = createEClass(PARAMETER);
-		createEAttribute(parameterEClass, PARAMETER__NAME);
 		createEReference(parameterEClass, PARAMETER__TYPE);
 
 		enumerationEClass = createEClass(ENUMERATION);
@@ -633,7 +506,6 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 		createEAttribute(cardinalityEClass, CARDINALITY__UPPER_BOUND);
 
 		roleEClass = createEClass(ROLE);
-		createEAttribute(roleEClass, ROLE__NAME);
 		createEReference(roleEClass, ROLE__CARDINALITY);
 		createEReference(roleEClass, ROLE__ENTITY);
 
@@ -641,17 +513,6 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 		createEReference(associationEClass, ASSOCIATION__ROLES);
 
 		typeEClass = createEClass(TYPE);
-
-		dateEClass = createEClass(DATE);
-		createEAttribute(dateEClass, DATE__DAY);
-		createEAttribute(dateEClass, DATE__MONTH);
-		createEAttribute(dateEClass, DATE__YEAR);
-		createEReference(dateEClass, DATE__TIMESTAMP);
-
-		timestampEClass = createEClass(TIMESTAMP);
-		createEAttribute(timestampEClass, TIMESTAMP__HOURS);
-		createEAttribute(timestampEClass, TIMESTAMP__MINUTES);
-		createEAttribute(timestampEClass, TIMESTAMP__SECONDS);
 	}
 
 	/**
@@ -682,22 +543,27 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		diagramEntityEClass.getESuperTypes().add(this.getNamedElement());
 		abstractEntityEClass.getESuperTypes().add(this.getDiagramEntity());
+		diagramEClass.getESuperTypes().add(this.getNamedElement());
 		classEClass.getESuperTypes().add(this.getAbstractEntity());
+		attributeEClass.getESuperTypes().add(this.getNamedElement());
+		operationEClass.getESuperTypes().add(this.getNamedElement());
+		parameterEClass.getESuperTypes().add(this.getNamedElement());
 		enumerationEClass.getESuperTypes().add(this.getAbstractEntity());
+		roleEClass.getESuperTypes().add(this.getNamedElement());
 		associationEClass.getESuperTypes().add(this.getDiagramEntity());
 		typeEClass.getESuperTypes().add(this.getAbstractEntity());
-		dateEClass.getESuperTypes().add(this.getType());
-		timestampEClass.getESuperTypes().add(this.getType());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(diagramEntityEClass, DiagramEntity.class, "DiagramEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDiagramEntity_Name(), ecorePackage.getEString(), "name", null, 0, 1, DiagramEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(diagramEntityEClass, DiagramEntity.class, "DiagramEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(abstractEntityEClass, AbstractEntity.class, "AbstractEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(diagramEClass, Diagram.class, "Diagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDiagram_Name(), ecorePackage.getEString(), "name", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDiagram_Entities(), this.getDiagramEntity(), null, "entities", null, 0, -1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(classEClass, smalluml.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -707,16 +573,13 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 		initEReference(getClass_Extends(), this.getClass_(), null, "extends", null, 0, 1, smalluml.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttribute_Type(), this.getAbstractEntity(), null, "type", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOperation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_ReturnType(), this.getAbstractEntity(), null, "returnType", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParameter_Type(), this.getAbstractEntity(), null, "type", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -727,7 +590,6 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 		initEAttribute(getCardinality_UpperBound(), ecorePackage.getEString(), "upperBound", null, 0, 1, Cardinality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRole_Name(), ecorePackage.getEString(), "name", null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRole_Cardinality(), this.getCardinality(), null, "cardinality", null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRole_Entity(), this.getClass_(), null, "entity", null, 1, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -735,17 +597,6 @@ public class SmallumlPackageImpl extends EPackageImpl implements SmallumlPackage
 		initEReference(getAssociation_Roles(), this.getRole(), null, "roles", null, 2, -1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(dateEClass, Date.class, "Date", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDate_Day(), ecorePackage.getEString(), "day", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDate_Month(), ecorePackage.getEString(), "month", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDate_Year(), ecorePackage.getEString(), "year", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDate_Timestamp(), this.getTimestamp(), null, "timestamp", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(timestampEClass, Timestamp.class, "Timestamp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTimestamp_Hours(), ecorePackage.getEInt(), "hours", null, 0, 1, Timestamp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTimestamp_Minutes(), ecorePackage.getEInt(), "minutes", null, 0, 1, Timestamp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTimestamp_Seconds(), ecorePackage.getEInt(), "seconds", null, 0, 1, Timestamp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

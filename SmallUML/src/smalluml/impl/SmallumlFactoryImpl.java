@@ -13,16 +13,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import smalluml.Association;
 import smalluml.Attribute;
 import smalluml.Cardinality;
-import smalluml.Date;
 import smalluml.Diagram;
-import smalluml.DiagramEntity;
 import smalluml.Enumeration;
 import smalluml.Operation;
 import smalluml.Parameter;
 import smalluml.Role;
 import smalluml.SmallumlFactory;
 import smalluml.SmallumlPackage;
-import smalluml.Timestamp;
 import smalluml.Type;
 
 /**
@@ -69,7 +66,6 @@ public class SmallumlFactoryImpl extends EFactoryImpl implements SmallumlFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case SmallumlPackage.DIAGRAM_ENTITY: return createDiagramEntity();
 			case SmallumlPackage.DIAGRAM: return createDiagram();
 			case SmallumlPackage.CLASS: return createClass();
 			case SmallumlPackage.ATTRIBUTE: return createAttribute();
@@ -80,21 +76,9 @@ public class SmallumlFactoryImpl extends EFactoryImpl implements SmallumlFactory
 			case SmallumlPackage.ROLE: return createRole();
 			case SmallumlPackage.ASSOCIATION: return createAssociation();
 			case SmallumlPackage.TYPE: return createType();
-			case SmallumlPackage.DATE: return createDate();
-			case SmallumlPackage.TIMESTAMP: return createTimestamp();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DiagramEntity createDiagramEntity() {
-		DiagramEntityImpl diagramEntity = new DiagramEntityImpl();
-		return diagramEntity;
 	}
 
 	/**
@@ -195,26 +179,6 @@ public class SmallumlFactoryImpl extends EFactoryImpl implements SmallumlFactory
 	public Type createType() {
 		TypeImpl type = new TypeImpl();
 		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Date createDate() {
-		DateImpl date = new DateImpl();
-		return date;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Timestamp createTimestamp() {
-		TimestampImpl timestamp = new TimestampImpl();
-		return timestamp;
 	}
 
 	/**
