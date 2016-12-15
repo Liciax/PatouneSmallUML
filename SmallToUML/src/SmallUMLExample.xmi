@@ -44,6 +44,9 @@
           name="musicSheet"
           type="//@entities.0"/>
     </operations>
+    <operations
+        name="twitterDrama"
+        returnType="//@entities.0"/>
   </entities>
   <entities
       xsi:type="smalluml:Class"
@@ -57,6 +60,9 @@
       <parameters
           name="soundVolume"
           type="//@entities.1"/>
+      <parameters
+          name="musicSheet"
+          type="//@entities.0"/>
     </operations>
   </entities>
   <entities
@@ -75,9 +81,6 @@
     <attributes
         name="violated"
         type="//@entities.2"/>
-    <operations
-        name="keepPromise"
-        returnType="//@entities.2"/>
   </entities>
   <entities
       xsi:type="smalluml:Association"

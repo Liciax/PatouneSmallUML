@@ -1,31 +1,43 @@
-Diagram Dating {
-	Type int;
-	Type Long;
-	Type boolean;
+Diagram OneDirection {
+	Type String;
+	Type Integer;
+	Type Boolean;
 	
-	Enumeration SexAppeal {
-		petitCul,
-		grosPecs
+	Enumeration InstrumentFamily {
+		Wind, Percussion, Electronic
 	}
 	
-	abstract Class Juliette {
-		attributes (isVirgin : boolean)
+	abstract Class Member {
+		attributes(name: String, firstName: String)
 	}
 	
-	abstract Class Romeo {
-		operations(boolean seduce (Juliette : juliette))
+	Class Instrument {
+		attributes(name : String, family : InstrumentFamily)
 	}
 	
-	Class Pierre extends Juliette {
-		attributes (appeal : SexAppeal, luck : int)
+	Class Singer extends Member {
+		operations(
+			String sing (String : musicSheet), 
+			String twitterDrama()
+		)
 	}
 	
-	Class Thao extends Romeo {
-		attributes (cheveux : Long)
+	Class Musician extends Member {
+		attributes(instrument : Instrument)
+		operations(String play (Integer : soundVolume, String : musicSheet))
 	}
 	
-	Association couple {
-		role mari ['1','1'] with Thao,
-		role femme ['1','1'] with Pierre
+	Class PurityRing {
+		attributes(violated : Boolean)
+	}
+	
+	Association SacredOath {
+		role member ['1','1'] with Member,
+		role ring ['1','1'] with PurityRing
+	}
+	
+	Association MusicBand {
+		role singer ['1','1'] with Singer,
+		role musicians ['2','*'] with Musician
 	}
 }
